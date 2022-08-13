@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+
+.header {
+    display: flex;
+
+    &__img {
+        flex: 20;
+        height: 8rem;
+    }
+
+    &__title {
+        flex: 80;
+    }
+}

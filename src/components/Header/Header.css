@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+}
+.header__img {
+  flex: 20;
+  height: 8rem;
+}
+.header__title {
+  flex: 80;
+}/*# sourceMappingURL=Header.css.map */
