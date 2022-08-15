@@ -1,10 +1,12 @@
 // import logo from './logo.svg';
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Login from "./components/Login/Login";
-import Register from "./components/Login/Register";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import axios from 'axios';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
+import Register from './components/Login/Register';
+import Home from './pages/Home/Home';
 import './App.css';
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
           <Header />
             <Route exact path="/" component={ Login }/>
             <Route path="/register" component={ Register }/>
+            <Route path="/home" component={ Home }/>
           {/* <Footer /> */}
         </BrowserRouter>
     </div>
