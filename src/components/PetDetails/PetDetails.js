@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const PetDetails = (props) => {
-    // const [pets, setPets] = useState([])
+    // const [pets, setPets] = useState({})
     // const [id, setId] = useState('')
-    console.log(props.match.params.id)
+
+    // const id = props.match.params.id;
+    console.log(props);
+    // console.log(pets)
 
     // useEffect(() =>{
     //     axios
-    //         .get('http://localhost:5050/pets')
+    //         .get(`http://localhost:5050/pets/${id}`)
     //         .then(res => {
-    //             console.log(res)
+    //             // console.log(id);
+    //             // console.log(res.data)
     //             setPets(res.data)
     //         })
     //         .catch(err => {
     //             console.log('Error')
     //         })
     // }, [])
+
+    // console.log(pets)
 
     return(
         <div>
@@ -26,7 +31,7 @@ const PetDetails = (props) => {
                     <li key={pet.id}>{pet.nature}</li>
                 ))}
             </ul> */}
-            hello
+            
         </div>
     )
 }

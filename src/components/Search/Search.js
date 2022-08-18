@@ -7,8 +7,9 @@ const Search = () => {
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5050/pets`)
+        axios.get('http://localhost:5050/pets')
             .then(res => {
+                console.log(res.data)
                 setResults(res.data)
             })
             .catch(err => {
@@ -16,14 +17,27 @@ const Search = () => {
             })
     }, [term]);
 
-const renderedList = results.filter(result => result.type===term || result.name===term || result.age===term);
+const newTerm = term.charAt(0).toUpperCase() + term.slice(1);
+const renderedList = results.filter(result => result.type===newTerm || result.name===newTerm|| result.age===newTerm);
 
     return(
         <div>
-            <PetCard data={results}/>
-            <div className="ui form">
-                <div className="field">
-                    {/* <label>Enter Search Term</label> */}
+            <div>
+                <div>
+                    {
+                        renderedList.map(pet => 
+                            <div key={pet.id}>
+                                <img alt='i' src={pet.image} />
+                                <h2>{pet.name}</h2>
+                                <p>{pet.type}</p>
+                                <p>{pet.sex}</p>
+                                <p>{pet.age}</p>
+                            </div>
+                    )}
+                </div>
+            </div>
+            <div>
+                <div>
                     <input 
                         value={term}
                         onChange={e => setTerm(e.target.value)}
@@ -33,22 +47,8 @@ const renderedList = results.filter(result => result.type===term || result.name=
                     />
                 </div>
             </div>
-            <div>
-                <div>
-                    {
-                        renderedList.map(pet => 
-                            <div key={pet.id}>
-                                <img alt='i' src={pet.image}></img>
-                                <h2>{pet.name}</h2>
-                                <div>{pet.type}</div>
-                                <div>{pet.sex}</div>
-                                <div>{pet.age}</div>
-                            </div>
-                    )}
-                </div>
-            </div>
         </div>
     )
-}
+};
 
 export default Search;
