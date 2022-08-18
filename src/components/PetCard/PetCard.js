@@ -58,7 +58,6 @@ import './PetCard.scss';
 const PetCard = (props) => {
 
     const [details, setDetails] = useState('');
-    const [id, setId] = useState('');
 
     const pets = props.petList
     const type = props.data
@@ -70,7 +69,7 @@ const PetCard = (props) => {
             <div>
                 {filteredPets.map(pet => {
                     return(
-                        <div onClick={e => setDetails('true')}>
+                        <div onClick={e => setDetails(pet.id)}>
                             <img alt='' src={pet.image}></img>
                             <h2>{pet.name}</h2>
                             <p>{pet.breed}</p>
@@ -79,7 +78,9 @@ const PetCard = (props) => {
                         </div>
                     )
                 })}
-                {details !== '' && <PetDetails id={id}/>}
+                <Link to={'/pets/details'}>
+                    {details !== '' && <PetDetails id={details}/>}
+                </Link>
             </div>
     )
 }
