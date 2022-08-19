@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PetCard from '../PetCard/PetCard';
+import './Search.scss'
 
 const Search = () => {
     const [term, setTerm] = useState('');
@@ -27,7 +28,7 @@ const renderedList = results.filter(result => result.type===newTerm || result.na
                     {
                         renderedList.map(pet => 
                             <div key={pet.id}>
-                                <img alt='i' src={pet.image} />
+                                <img alt='i'className='img' src={`http://localhost:5050/${pet.image}`} />
                                 <h2>{pet.name}</h2>
                                 <p>{pet.type}</p>
                                 <p>{pet.sex}</p>

@@ -4,34 +4,48 @@ import { Link } from "react-router-dom";
 import { type } from '@testing-library/user-event/dist/type';
 import PetCard from '../PetCard/PetCard';
 
-const PetType = (props) => {
+const PetType = () => {
 
-    const [results, setResults] = useState([]);
-    const [type, setType] = useState('');
+    // const [results, setResults] = useState([]);
+    const [type, setType] = useState([]);
+    const [petType, setPetType] = useState('')
 
-    useEffect(() => {
-        axios.get('http://localhost:5050/pets')
+    // useEffect(() => {
+    //     axios.get('http://localhost:5050/pets')
+    //         .then(res => {
+    //             console.log(res.data)
+    //             setResults(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log('Error')
+    //         })
+    // }, []);
+    useEffect(()=> {
+        axios
+            .get('http://localhost:5050/type')
             .then(res => {
-                console.log(res.data)
-                setResults(res.data)
+                setType(res.data)
             })
             .catch(err => {
                 console.log('Error')
             })
-    }, []);
+    }, [])
 
-    console.log(results)
-    const petList = props.data
+    // console.log(results)
+    // const petList = props.data
     console.log(type)
 
     return (
         <div>
-            {petList.map(pet => 
+            {type.map(pet => 
+                <button onClick={e => setPetType(pet.type)}>{pet.type}</button>
+            )}
+            {/* {petList.map(pet => 
             <button onClick={e => setType(pet.type)} key={pet.id}>
                 {pet.type}
             </button>
-            )}
-            {type !== '' && <PetCard data={type} petList={results}/>}
+            )} */}
+            {petType !== '' && <PetCard data={petType}/>}
         </div>
     )
 };

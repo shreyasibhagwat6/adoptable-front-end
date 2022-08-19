@@ -1,33 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 
 const PetDetails = (props) => {
     const [pets, setPets] = useState({})
-    // const [id, setId] = useState('')
 
-    const id = props.id;
-    console.log(props.id);
-    // console.log(pets)
+    const { petId } = useParams();
 
     useEffect(() =>{
         axios
-            .get(`http://localhost:5050/pets/${id}`)
+            .get(`http://localhost:5050/pets/${petId}`)
             .then(res => {
-                // console.log(id);
-                // console.log(res.data)
                 setPets(res.data)
             })
             .catch(err => {
                 console.log('Error')
             })
-    }, [])
+    }, [petId])
 
     console.log(pets)
 
     return(
         <div>
-            <img alt='' src={pets.image}></img>
-            <h2>{pets.name}</h2>
+        {Object.keys(pets).map((key, index)=>{
+            return(
+                <div>
+                    <h2>
+                        {key}: {pets[key]}
+                    </h2>
+                </div>    
+            )
+        })}
         </div>
     )
 }

@@ -8,26 +8,27 @@ const apiUrl = "http://localhost:5050";
 
 const Home = () => {
 
-    const [pets, setPets] = useState([]);
-    const [type, setType] = useState('');
-    const [id, setId] = useState('');
+    // const [pets, setPets] = useState([]);
+    // const [type, setType] = useState('');
+    // const [id, setId] = useState('');
 
-    useEffect(()=> {
-        axios
-            .get('http://localhost:5050/type')
-            .then(res => {
-                setPets(res.data)
-            })
-            .catch(err => {
-                console.log('Error')
-            })
-    }, [])
+    // useEffect(()=> {
+    //     axios
+    //         .get('http://localhost:5050/type')
+    //         .then(res => {
+    //             setPets(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log('Error')
+    //         })
+    // }, [])
 
-    console.log(pets)
+    // console.log(pets)
     
     return(
         <div>
-            <PetType data={pets}/>
+            {/* <PetType data={pets}/> */}
+            <PetType />
             <Search />
         </div>
     )

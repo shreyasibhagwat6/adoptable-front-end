@@ -9,8 +9,10 @@ import Home from './pages/Home/Home';
 import PetCard from './components/PetCard/PetCard';
 import PetDetails from './components/PetDetails/PetDetails';
 import './App.css';
+import PetType from './components/PetType/PetType';
 
 function App() {
+
   return(
     <div>
         <BrowserRouter>
@@ -18,8 +20,8 @@ function App() {
             <Route exact path="/" component={ Login }/>
             <Route path="/register" component={ Register }/>
             <Route path="/home" component={ Home }/>
-            <Route path="/pets" component={ PetCard } />
-            <Route path="/pets/:id" component={ PetDetails } />
+            {/* <Route path="/pets" component={ PetCard } /> */}
+            <Route path="/pets/:petId" component={ PetDetails } />
           {/* <Footer /> */}
         </BrowserRouter>
     </div>
