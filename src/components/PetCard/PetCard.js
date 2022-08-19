@@ -9,6 +9,8 @@ const PetCard = (props) => {
     const [results, setResults] = useState([]);
     const [details, setDetails] = useState('');
 
+    const { petsType } = useParams();
+
     useEffect(() => {
         axios.get('http://localhost:5050/pets')
             .then(res => {
@@ -21,9 +23,8 @@ const PetCard = (props) => {
     }, []);
 
     console.log(results)
-    const petType = props.data;
 
-    const filteredPets = results.filter(pet => pet.type === petType);
+    const filteredPets = results.filter(pet => pet.type === petsType);
     console.log(filteredPets);
 
     return (

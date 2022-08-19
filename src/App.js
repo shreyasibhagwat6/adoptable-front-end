@@ -20,7 +20,7 @@ function App() {
             <Route exact path="/" component={ Login }/>
             <Route path="/register" component={ Register }/>
             <Route path="/home" component={ Home }/>
-            {/* <Route path="/pets" component={ PetCard } /> */}
+            <Route path="/pets/:petsType" component={ PetCard } />
             <Route path="/pets/:petId" component={ PetDetails } />
           {/* <Footer /> */}
         </BrowserRouter>
