@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import './PetDetails.scss'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavList from '../FavList/FavList';
 
 const PetDetails = (props) => {
@@ -26,8 +27,6 @@ const PetDetails = (props) => {
     console.log(pets)
 
     const clickHandler = () => {
-        // console.log(pets.id)
-        // console.log(pets.users_id)
         const newFavList = [...fav, pets]
         setActive(!active);
         setFav(newFavList)
@@ -37,7 +36,10 @@ const PetDetails = (props) => {
     return(
         <div>
             <img className='img' alt='' src={`http://localhost:5050/${pets.image}`}></img>
-            <button className={active ? null : 'app'} onClick={clickHandler}>Fav Me</button>
+            {/* <button className={active ? null : 'app'} onClick={clickHandler}>Fav Me</button> */}
+            <div>
+                <FavoriteBorderIcon className={active ? null : 'app'} onClick={clickHandler}/>
+            </div>
             <h2>{pets.name}</h2>
             <p>{pets.type}</p>
             <p>{pets.sex}</p>
@@ -50,9 +52,11 @@ const PetDetails = (props) => {
             <p>{pets.nature}</p>
             <p>{pets.fee}</p>
             <p>{pets.users_id}</p>
-            <Link to='/favourites'>
+            <button>Message</button>
+            <button>Adopt {pets.name}</button>
+            {/* <Link to='/favourites'>
                 <FavList fav={fav}/>
-            </Link>
+            </Link> */}
         </div>
     )
 }
