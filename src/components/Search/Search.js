@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import PetCard from '../PetCard/PetCard';
+import PetDetails from '../PetDetails/PetDetails';
 import './Search.scss'
 
 const Search = () => {
     const [term, setTerm] = useState('');
     const [results, setResults] = useState([]);
+    const [details, setDetails] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:5050/pets')
@@ -36,18 +39,25 @@ const renderedList = results.filter(result => result.type===newTerm || result.na
             </div>
             <div>
                 <div>
-                    {
-                        renderedList.map(pet => 
+                    {renderedList.map(pet => {
+                        return(
                             <div key={pet.id}>
-                                <img alt='i'className='img' src={`http://localhost:5050/${pet.image}`} />
-                                <h2>{pet.name}</h2>
-                                <p>{pet.type}</p>
-                                <p>{pet.sex}</p>
-                                <p>{pet.age}</p>
+                                <Link to={`/pets/${pet.id}`}>
+                                    <div onClick={e => {setDetails(pet.id)}} key={pet.id}>
+                                        <img alt='i'className='img' src={`http://localhost:5050/${pet.image}`} />
+                                        <h2>{pet.name}</h2>
+                                        <p>{pet.type}</p>
+                                        <p>{pet.sex}</p>
+                                        <p>{pet.age}</p>
+                                    </div>
+                                </Link>
                             </div>
+                        )
+                    }
                     )}
                 </div>
             </div>
+            {details !== '' && <PetDetails id={details}/>}
         </div>
     )
 };

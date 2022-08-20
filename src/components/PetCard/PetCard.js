@@ -1,6 +1,6 @@
 import React, { useState, useEffect  } from 'react';
-import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
+import axios from 'axios';
 import PetDetails from '../PetDetails/PetDetails';
 import './PetCard.scss';
 
@@ -39,10 +39,7 @@ const PetCard = (props) => {
                     return(
                         <div>
                             <Link to={`/pets/${pet.id}`}>
-                                <div onClick={e => {
-                                    setDetails(pet.id)
-
-                                 }}>
+                                <div onClick={e => {setDetails(pet.id)}} key={pet.id}>
                                     <img className='img' alt='' src={`http://localhost:5050/${pet.image}`}></img>
                                     <h2>{pet.name}</h2>
                                     <p>{pet.breed}</p>

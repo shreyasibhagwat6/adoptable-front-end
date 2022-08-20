@@ -9,6 +9,7 @@ import Home from './pages/Home/Home';
 import PetCard from './components/PetCard/PetCard';
 import PetDetails from './components/PetDetails/PetDetails';
 import FavList from './components/FavList/FavList';
+import Message from './components/Message/Message';
 import './App.css';
 
 function App() {
@@ -22,9 +23,9 @@ function App() {
             <Route path="/register" component={ Register }/>
             <Route path="/home" component={ Home }/>
             <Route exact path="/pets/gallery/:petsType" component={ PetCard } />
-            {/* <Route path="/pets" component={ PetCard } /> */}
             <Route exact path="/pets/:petId" component={ PetDetails } />
             <Route path="/favourites" component={ FavList } />
+            <Route path="/messages" component={ Message } />
           {/* </Switch>   */}
           <Footer />
         </BrowserRouter>

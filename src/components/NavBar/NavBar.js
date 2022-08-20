@@ -13,7 +13,9 @@ const NavBar = () => {
             <Link to='/favourites'>
                 <FavoriteIcon />
             </Link>
-            <MessageIcon />
+            <Link to='/messages'>
+                <MessageIcon />
+            </Link>
         </div>
     )
 }
