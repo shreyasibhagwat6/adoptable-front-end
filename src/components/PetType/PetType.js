@@ -5,34 +5,35 @@ import PetCard from '../PetCard/PetCard';
 
 const PetType = () => {
 
-    const [type, setType] = useState([]);
+    const [info, setInfo] = useState([]);
     const [petType, setPetType] = useState('')
 
     useEffect(()=> {
         axios
             .get('http://localhost:5050/type')
             .then(res => {
-                setType(res.data)
+                setInfo(res.data)
             })
             .catch(err => {
                 console.log('Error')
             })
     }, [])
 
-    console.log(type)
+    console.log(info)
+    
 
     return (
         <div>
-            {type.map(pet => {
+            {info.map(pet => {
                 return (
                     <div>
-                        <Link to={`/pets/${pet.type}`}>
+                        <Link to={`/pets/gallery/${pet.type}`}>
                             <button onClick={e => setPetType(pet.type)}>{pet.type}</button>
                         </Link>
                     </div>
                 )
             })}
-            {petType !== '' && <PetCard data={petType}/>}
+            {petType !== '' && <PetCard />}
         </div>
     )
 };

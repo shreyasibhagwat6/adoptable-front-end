@@ -25,6 +25,17 @@ const renderedList = results.filter(result => result.type===newTerm || result.na
         <div>
             <div>
                 <div>
+                    <input 
+                        value={term}
+                        onChange={e => setTerm(e.target.value)}
+                        type='text' 
+                        className='input'
+                        placeholder='Search Kitten, Puppy etc.' 
+                    />
+                </div>
+            </div>
+            <div>
+                <div>
                     {
                         renderedList.map(pet => 
                             <div key={pet.id}>
@@ -35,17 +46,6 @@ const renderedList = results.filter(result => result.type===newTerm || result.na
                                 <p>{pet.age}</p>
                             </div>
                     )}
-                </div>
-            </div>
-            <div>
-                <div>
-                    <input 
-                        value={term}
-                        onChange={e => setTerm(e.target.value)}
-                        type='text' 
-                        className='input'
-                        placeholder='Search Kitten, Puppy etc.' 
-                    />
                 </div>
             </div>
         </div>

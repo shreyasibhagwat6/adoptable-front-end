@@ -8,8 +8,8 @@ import Register from './components/Login/Register';
 import Home from './pages/Home/Home';
 import PetCard from './components/PetCard/PetCard';
 import PetDetails from './components/PetDetails/PetDetails';
+import FavList from './components/FavList/FavList';
 import './App.css';
-import PetType from './components/PetType/PetType';
 
 function App() {
 
@@ -17,12 +17,16 @@ function App() {
     <div>
         <BrowserRouter>
           <Header />
+          {/* <Switch> */}
             <Route exact path="/" component={ Login }/>
             <Route path="/register" component={ Register }/>
             <Route path="/home" component={ Home }/>
-            <Route path="/pets/:petsType" component={ PetCard } />
-            <Route path="/pets/:petId" component={ PetDetails } />
-          {/* <Footer /> */}
+            <Route exact path="/pets/gallery/:petsType" component={ PetCard } />
+            {/* <Route path="/pets" component={ PetCard } /> */}
+            <Route exact path="/pets/:petId" component={ PetDetails } />
+            <Route path="/favourites" component={ FavList } />
+          {/* </Switch>   */}
+          <Footer />
         </BrowserRouter>
     </div>
   )
