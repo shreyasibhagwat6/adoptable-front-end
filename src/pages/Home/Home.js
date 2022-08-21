@@ -4,7 +4,7 @@ import axios from 'axios';
 import Search from '../../components/Search/Search';
 import PetType from '../../components/PetType/PetType';
 import NavBar from '../../components/NavBar/NavBar';
-import { FavProvider } from '../../Context/FavContext';
+import { FavProvider } from '../../context/FavContext';
 
 const apiUrl = "http://localhost:5050";
 

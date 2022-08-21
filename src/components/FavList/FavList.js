@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useFav } from '../../Context/FavContext';
+import { useFav } from '../../context/FavContext';
 
 const FavList = (props) => {
 

@@ -1,4 +1,5 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useContext } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const FavContext = createContext();
 
@@ -10,7 +11,9 @@ function FavProvider(props) {
         data: {}
     }
 
-    const [fav, setFav] = useState(shape);
+    // const [fav, setFav] = useState(shape);
+
+    const [fav, setFav] = useLocalStorage('MyFav', shape);
 
     function updateFav(type, id, data){
         setFav({

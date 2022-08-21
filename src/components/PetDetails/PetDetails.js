@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import './PetDetails.scss'
-import { useFav } from '../../Context/FavContext'
+import { useFav } from '../../context/FavContext'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const PetDetails = (props) => {
