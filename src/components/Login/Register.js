@@ -1,13 +1,11 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
 
-class Register extends React.Component {
 
-    constructor(props) {
-        super(props)
+const Register = () => {
 
-    }
-
-    render(){
+    let history = useHistory();
+                
         return(
             <div>
                 <div>Register</div>
@@ -26,17 +24,18 @@ class Register extends React.Component {
                     </div>
                     <div>
                         <label>Password: </label>
-                        <input placeholder="Password"></input>
+                        <input type='password' placeholder="Password"></input>
                     </div>
                     <div>
                         <label>Confirm Password: </label>
-                        <input placeholder="Password"></input>
+                        <input type='password' placeholder="Password"></input>
                     </div>
-                    <button>Register</button>
+                    <button onClick={()=>{
+                        history.push('/')
+                    }}>Register</button>
                 </form>
             </div>
         )
     }
-}
 
 export default Register;

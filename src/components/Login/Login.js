@@ -21,7 +21,7 @@ const Login = () => {
                         history.push('/home')
                     }}>Login</button>
                 </form>
-                <div>Not a member yet? <Link to={`/register`}>Register</Link></div>
+                <div>Not a member yet? <Link to={'/register'}>Register</Link></div>
             </div>
         )
 }

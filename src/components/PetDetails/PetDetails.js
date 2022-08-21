@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { createContext, useRef, useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import './PetDetails.scss'
+import { useFav } from '../../Context/FavContext'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavList from '../FavList/FavList';
 
 const PetDetails = (props) => {
     const [pets, setPets] = useState({})
     const [active, setActive] = useState('false');
-    const [fav, setFav] = useState([]);
+    const [fav, updateFav] = useFav();
     const [modalIsOpen, setModalIsOpen] = useState(false);  
     const { petId } = useParams();
 
@@ -28,10 +28,10 @@ const PetDetails = (props) => {
 
     console.log(pets)
 
+
     const clickHandler = () => {
-        const newFavList = [...fav, pets]
         setActive(!active);
-        setFav(newFavList)
+        updateFav('pets', pets.id, pets)
     }
     console.log(fav)
 
@@ -42,16 +42,41 @@ const PetDetails = (props) => {
                 <FavoriteBorderIcon className={active ? null : 'app'} onClick={clickHandler}/>
             </div>
             <h2>{pets.name}</h2>
-            <p>{pets.type}</p>
-            <p>{pets.sex}</p>
-            <p>{pets.age}</p>
-            <p>{pets.colour}</p>
-            <p>{pets.breed}</p>
-            <p>{pets.adoption}</p>
-            <p>{pets.littertrained}</p>
-            <p>{pets.health}</p>
-            <p>{pets.nature}</p>
-            <p>{pets.fee}</p>
+            <div>
+                <h4>About</h4>
+                <div>
+                    <div>
+                        {/* <p>{pets.type}</p> */}
+                        <p>{pets.sex}</p>
+                        <p>{pets.age}</p>
+                    </div>
+                    <div>
+                        <h4>Colour and Breed</h4>
+                        <p>{pets.colour}</p>
+                        <p>{pets.breed}</p>
+                    </div>
+                    <div>
+                        <h4>Adoption Story</h4>
+                        <p>{pets.adoption}</p>
+                    </div>
+                    <div>
+                        <h4>Litter-Trained</h4>
+                        <p>{pets.littertrained}</p>
+                    </div>
+                    <div>
+                        <h4>Health</h4>
+                        <p>{pets.health}</p>
+                    </div>
+                    <div>
+                        <h4>Adoption Fee: </h4>
+                        <p>{pets.fee}</p>
+                    </div>
+                </div>
+                <h3>Meet {pets.name}</h3>
+                <div>
+                    <p>{pets.nature}</p>
+                </div>
+            </div>
             <p>{pets.users_id}</p>
             <button>Message</button>
             <button onClick={e => setModalIsOpen(true)}>Adopt {pets.name}</button>
@@ -59,29 +84,27 @@ const PetDetails = (props) => {
                 <h4>Adoption Application Form</h4>
                 <form>
                     <div>
-                        <label>First Name</label>
+                        <label>First Name: </label>
                         <input type='text'></input>
                     </div>
                     <div>
-                        <label>Last Name</label>
+                        <label>Last Name: </label>
                         <input type='text'></input>
                     </div>
                     <div>
-                        <label>E-Mail</label>
+                        <label>E-Mail: </label>
                         <input type='text'></input>
                     </div>
                     <div>
-                        <label>Tell Us About Yourself</label>
+                        <label>Tell Us About Yourself: </label>
                         <input type='text'></input>
                     </div>
                 </form>
                 <div>
+                <button onClick={e => setModalIsOpen(false)}>Submit</button>
                     <button onClick={e => setModalIsOpen(false)}>Close</button>
                 </div>    
             </Modal>
-            {/* <Link to='/favourites'>
-                <FavList fav={fav}/>
-            </Link> */}
         </div>
     )
 }
