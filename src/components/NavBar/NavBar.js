@@ -26,23 +26,15 @@ const NavBar = () => {
             age : e.target.age.value,
         }
         console.log(newPet);
-
         setPet(newPet);
-        // axios.post('http://localhost:5050/pets', { newPet })
-        // .then((response) => {
-        //     setPet(response.data)
-        //     console.log(pet)
-        // }).catch((error)=> {
-        //     console.log(error)
-        // })
     };
 
     console.log(pet)
 
     useEffect(()=> {
-        axios.post('http://localhost:5050/pets', { pet })
+        axios.post('http://localhost:5050/pets', pet)
         .then((response) => {
-        console.log(response.data.json)
+        console.log(response)
     }).catch((error)=> {
         console.log(error.response.data)
     })
