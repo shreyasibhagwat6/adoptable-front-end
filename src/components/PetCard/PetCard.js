@@ -2,15 +2,16 @@ import React, { useState, useEffect  } from 'react';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import PetDetails from '../PetDetails/PetDetails';
+import { useFav } from '../../context/FavContext'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import './PetCard.scss';
 
 const PetCard = (props) => {
 
-    console.log(props)
-
     const [results, setResults] = useState([]);
     const [details, setDetails] = useState('');
-
+    const [fav, updateFav] = useFav();
+    const [active, setActive] = useState('false');
     const { petsType } = useParams();
 
     useEffect(() => {
@@ -32,6 +33,11 @@ const PetCard = (props) => {
     console.log(filteredPets);
 
     console.log(details)
+
+    const clickHandler = () => {
+        setActive(!active);
+        updateFav('pets', results.id, results)
+    }
 
     return (
             <div>

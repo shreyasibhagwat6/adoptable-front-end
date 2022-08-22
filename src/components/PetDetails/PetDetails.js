@@ -33,7 +33,6 @@ const PetDetails = (props) => {
         setActive(!active);
         updateFav('pets', pets.id, pets)
     }
-    console.log(fav)
 
     return(
         <div>
@@ -46,7 +45,6 @@ const PetDetails = (props) => {
                 <h4>About</h4>
                 <div>
                     <div>
-                        {/* <p>{pets.type}</p> */}
                         <p>{pets.sex}</p>
                         <p>{pets.age}</p>
                     </div>
