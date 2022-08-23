@@ -3,6 +3,22 @@
   height: 200px;
 }
 
+.img1 {
+  width: 20px;
+  height: 20px;
+}
+
+.img2 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 1px;
+  display: none;
+}
+
 .app {
-  background-color: red;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 1px;
 }/*# sourceMappingURL=PetDetails.css.map */

@@ -13,7 +13,22 @@ const NavBar = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);  
     const [pet, setPet] = useState({});
+    const [fileInputState, setfileInputState] = useState('');
+    const [selectedFile, setSelectedFile] = useState('');
+    const [previewSource, setPreviewSource] = useState()
     
+    const handleFileInputChange = (e) =>{
+       const file = e.target.files[0]
+    //    previewFile(uploadedFile);
+    };
+
+    const previewFile = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setPreviewSource(reader.result);
+        }
+    }
     
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -75,6 +90,10 @@ const NavBar = () => {
                         <label>Breed: </label>
                         <input name='breed' type='text'></input>
                     </div>
+                    <div>
+                        <label>Add an Image: </label>
+                        <input onChange={handleFileInputChange} value={fileInputState} name='image' type='file'></input>
+                    </div>
                     <button type='submit'>Submit</button>
                     {/* <div>
                         <label>User ID: </label>
@@ -105,6 +124,7 @@ const NavBar = () => {
                         <input name='nature' type='text'></input>
                     </div> */}
                 </form>
+                {previewSource && (<img src={previewSource} alt='chosen'></img>)}
                 <div>
                     <button type='button' onClick={e => setModalIsOpen(false)}>Close</button>
                 </div>    

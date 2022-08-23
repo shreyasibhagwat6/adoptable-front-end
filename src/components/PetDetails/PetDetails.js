@@ -5,6 +5,9 @@ import axios from 'axios';
 import './PetDetails.scss'
 import { useFav } from '../../context/FavContext'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { red } from "@mui/material/colors";
+import heart from '../../Assets/Icons/heart.png';
+import activeHeart from '../../Assets/Icons/heart_active.png';
 
 const PetDetails = (props) => {
     const [pets, setPets] = useState({})
@@ -28,17 +31,18 @@ const PetDetails = (props) => {
 
     console.log(pets)
 
-
-    const clickHandler = () => {
-        setActive(!active);
-        updateFav('pets', pets.id, pets)
-    }
+    
+        const clickHandler = () => {
+            setActive(!active);
+            updateFav('pets', pets.id, pets)
+        }
 
     return(
         <div>
             <img className='img' alt='' src={`http://localhost:5050/${pets.image}`}></img>
-            <div>
-                <FavoriteBorderIcon className={active ? null : 'app'} onClick={clickHandler}/>
+            <div onClick={clickHandler}>
+                <img className='img1' alt='' src={heart}></img>
+                <img className={active ? 'app': 'img2'} alt='' src={activeHeart}></img>
             </div>
             <h2>{pets.name}</h2>
             <div>

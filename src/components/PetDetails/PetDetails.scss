@@ -3,6 +3,23 @@
     height: 200px;
 }
 
-.app {
-    background-color: red;
+.img1 {
+    width: 20px;
+    height: 20px;
 }
+
+.img2 {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 1px;
+    display: none;
+}
+
+.app {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 1px;
+}
+
