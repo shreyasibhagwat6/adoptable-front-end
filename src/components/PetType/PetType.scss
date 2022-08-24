@@ -1,0 +1,26 @@
+.pet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    &__img{
+        width: 100%;
+    }
+
+    &__card {
+        height: 5rem;
+        width: 5rem;
+        border: 2px solid #373458;
+        margin: 1rem;
+        border-radius: 00.5rem;
+    }
+    
+    &__link {
+        text-decoration: none;
+    }
+
+    &__type {
+        padding: 2.5rem 1rem;
+    }
+}
+    

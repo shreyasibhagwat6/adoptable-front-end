@@ -25,8 +25,7 @@ const newTerm = term.charAt(0).toUpperCase() + term.slice(1);
 const renderedList = results.filter(result => result.type===newTerm || result.name===newTerm|| result.age===newTerm);
 
     return(
-        <div>
-            <div>
+            <div className='search'>
                 <div>
                     <input 
                         value={term}
@@ -36,8 +35,6 @@ const renderedList = results.filter(result => result.type===newTerm || result.na
                         placeholder='Search Kitten, Puppy etc.' 
                     />
                 </div>
-            </div>
-            <div>
                 <div>
                     {renderedList.map(pet => {
                         return(
@@ -56,7 +53,6 @@ const renderedList = results.filter(result => result.type===newTerm || result.na
                     }
                     )}
                 </div>
-            </div>
             {details !== '' && <PetDetails id={details}/>}
         </div>
     )

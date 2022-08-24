@@ -1,4 +1,7 @@
-.img {
-  height: 200px;
-  width: 200px;
+.input {
+  width: 50%;
+  border-radius: 0.5rem;
+  height: 2rem;
+  display: block;
+  margin: 2rem auto;
 }/*# sourceMappingURL=Search.css.map */

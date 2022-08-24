@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import './Register.scss';
 
 
 const Register = () => {
@@ -7,32 +8,34 @@ const Register = () => {
     let history = useHistory();
                 
         return(
-            <div>
-                <div>Register</div>
+            <div className="register">
+                <div className="register__header">Register</div>
                 <form>
                     <div>
-                        <label>Full Name: </label>
-                        <input placeholder="Full Name"></input>
+                        <label className="register__label">Name: </label>
+                        <input className="register__input" placeholder="Full Name"></input>
                     </div>
                     <div>
-                        <label>E-mail: </label>
-                        <input placeholder="E-mail"></input>
+                        <label className="register__label">E-mail: </label>
+                        <input className="register__input" placeholder="E-mail"></input>
                     </div>
                     <div>
-                        <label>Username: </label>
-                        <input placeholder="Username"></input>
+                        <label className="register__label">Username: </label>
+                        <input className="register__input" placeholder="Username"></input>
                     </div>
                     <div>
-                        <label>Password: </label>
-                        <input type='password' placeholder="Password"></input>
+                        <label className="register__label">Password: </label>
+                        <input className="register__input" type='password' placeholder="Password"></input>
                     </div>
                     <div>
-                        <label>Confirm Password: </label>
-                        <input type='password' placeholder="Password"></input>
+                        <label className="register__label">Confirm Password: </label>
+                        <input className="register__input" type='password' placeholder="Password"></input>
                     </div>
-                    <button onClick={()=>{
-                        history.push('/')
-                    }}>Register</button>
+                    <div className="container">
+                        <button className="register__button" onClick={()=>{
+                            history.push('/')
+                        }}>Register</button>
+                    </div>
                 </form>
             </div>
         )

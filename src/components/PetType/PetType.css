@@ -1,0 +1,21 @@
+.pet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pet__img {
+  width: 100%;
+}
+.pet__card {
+  height: 5rem;
+  width: 5rem;
+  border: 2px solid #373458;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+.pet__link {
+  text-decoration: none;
+}
+.pet__type {
+  padding: 2.5rem 1rem;
+}/*# sourceMappingURL=PetType.css.map */
