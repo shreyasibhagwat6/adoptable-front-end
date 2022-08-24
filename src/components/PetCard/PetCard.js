@@ -2,6 +2,7 @@ import React, { useState, useEffect  } from 'react';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import PetDetails from '../PetDetails/PetDetails';
+import NavBar from '../NavBar/NavBar';
 import { useFav } from '../../context/FavContext'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import './PetCard.scss';
@@ -41,6 +42,7 @@ const PetCard = (props) => {
 
     return (
             <div>
+                <NavBar />
                 {filteredPets.map(pet => {
                     return(
                         <div>

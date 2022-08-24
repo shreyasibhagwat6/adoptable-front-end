@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  background-color: #702866;
 }
 .header__img {
   flex: 20;

@@ -2,10 +2,11 @@ import React from "react";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import './Footer.scss';
 
 const Footer = () => {
     return(
-        <div>
+        <div className="footer">
             <div>
                 <img></img>
                 <h4>ABOUT ADOPTABLE</h4>

@@ -13,6 +13,7 @@ const Home = () => {
     return(
         <FavProvider>
             <div>
+                <NavBar />
                 <PetType />
                 <Search />
             </div>

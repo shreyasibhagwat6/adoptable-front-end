@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useFav } from '../../context/FavContext';
+import NavBar from '../NavBar/NavBar';
 
 const FavList = (props) => {
 
@@ -10,6 +11,7 @@ const FavList = (props) => {
 
     return(
         <div>
+            <NavBar />
             <img className='img' alt=''src={`http://localhost:5050/${fav.data.image}`}></img>
             <h2>{fav.data.name}</h2>
             <p>{fav.data.breed}</p>

@@ -2,7 +2,8 @@ import React, { createContext, useRef, useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
-import './PetDetails.scss'
+import './PetDetails.scss';
+import NavBar from '../NavBar/NavBar';
 import { useFav } from '../../context/FavContext'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { red } from "@mui/material/colors";
@@ -39,6 +40,7 @@ const PetDetails = (props) => {
 
     return(
         <div>
+            <NavBar />
             <img className='img' alt='' src={`http://localhost:5050/${pets.image}`}></img>
             <div onClick={clickHandler}>
                 <img className='img1' alt='' src={heart}></img>

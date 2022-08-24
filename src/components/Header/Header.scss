@@ -1,7 +1,10 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables";
 
 .header {
     display: flex;
+    background-color: #702866;
+    // background-color: #C5A9C1;
 
     &__img {
         flex: 20;

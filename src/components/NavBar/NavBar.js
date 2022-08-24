@@ -19,7 +19,7 @@ const NavBar = () => {
     
     const handleFileInputChange = (e) =>{
        const file = e.target.files[0]
-    //    previewFile(uploadedFile);
+       previewFile(file);
     };
 
     const previewFile = (file) => {
@@ -29,20 +29,37 @@ const NavBar = () => {
             setPreviewSource(reader.result);
         }
     }
-    
+
     const handleSubmit = (e) =>{
         e.preventDefault();
-        
+        uploadImage(previewSource);
+
         const newPet = {
             type : e.target.type.value,
             name : e.target.name.value,
             breed : e.target.breed.value,
             sex : e.target.sex.value,
             age : e.target.age.value,
+            // image : base64EncodedImage
         }
         console.log(newPet);
         setPet(newPet);
     };
+
+    const uploadImage = async(base64EncodedImage) => {
+        console.log(base64EncodedImage);
+        try {
+            await fetch('http://localhost:5050/pets', {
+                method: 'POST',
+                body: JSON.stringify({ data: base64EncodedImage }),
+                headers: { 'Content-type': 'application/json' },
+            });
+        } catch (error){
+            console.log(error.data)
+        }
+    };
+
+    console.log(uploadImage);
 
     console.log(pet)
 
@@ -124,7 +141,7 @@ const NavBar = () => {
                         <input name='nature' type='text'></input>
                     </div> */}
                 </form>
-                {previewSource && (<img src={previewSource} alt='chosen'></img>)}
+                {previewSource && (<img src={previewSource} alt='chosen' style={{ height: '300px' }}></img>)}
                 <div>
                     <button type='button' onClick={e => setModalIsOpen(false)}>Close</button>
                 </div>    

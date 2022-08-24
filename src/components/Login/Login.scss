@@ -1,0 +1,46 @@
+
+.login {
+    
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem 0;
+    }
+
+    &__button {
+        background-color: #373458;
+        color: #FFFFFF;
+        width: 50%;
+        border-radius: 0.5rem;
+        height: 2rem;
+        border-color: #373458;
+        margin: 2rem;
+    }
+
+    &__input {
+        width: 50%;
+        border-radius: 0.5rem;
+        height: 2rem;
+        display: block;
+        margin: 1rem 4.7rem;
+    }
+
+    &__label {
+        margin: 1rem 8rem;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

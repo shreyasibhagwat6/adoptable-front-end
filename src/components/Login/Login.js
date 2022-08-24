@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import './Login.scss';
 
 
 const Login = () => {
@@ -11,20 +12,22 @@ const Login = () => {
     }
 
         return(
-            <div>
-                <div>Login</div>
+            <div className="login">
+                <div className="login__header">Log in</div>
                 <form>
-                    <div>
-                        <label>Username: </label>
-                        <input type='text' placeholder="Username"></input>
+                    <div className="login__cont">
+                        <label className="login__label">Username </label>
+                        <input className="login__input" type='text' placeholder="Username"></input>
                     </div>
-                    <div>
-                        <label>Password: </label>
-                        <input type='password' placeholder="Password"></input>
+                    <div className="login__cont">
+                        <label className="login__label">Password </label>
+                        <input className="login__input" type='password' placeholder="Password"></input>
                     </div>
-                    <button onClick={clickHandler}>Login</button>
+                    <div className="container">
+                        <button className="login__button" onClick={clickHandler}>Login</button>
+                    </div>
                 </form>
-                <div>Not a member yet? <Link to={'/register'}>Register</Link></div>
+                <div className="login__link">Not a member yet? <Link to={'/register'}>Register</Link></div>
             </div>
         )
 }
