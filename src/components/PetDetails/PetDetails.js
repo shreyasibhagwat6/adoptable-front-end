@@ -42,50 +42,51 @@ const PetDetails = (props) => {
         <div>
             <NavBar />
             <div className='cont'>
-                <img className='img' alt='' src={`http://localhost:5050/${pets.image}`}></img>
+                <img className='image' alt='' src={`http://localhost:5050/${pets.image}`}></img>
             </div>
-            <div onClick={clickHandler}>
-                <img className='img1' alt='' src={heart}></img>
-                <img className={active ? 'img2': 'app'} alt='' src={activeHeart}></img>
-            </div>
-            <h2>{pets.name}</h2>
-            <div className='pet'>
-                <h4>About</h4>
-                <div>
+            <div className='page'> 
+                <div className='page__top' onClick={clickHandler}>
+                    <img className='img1' alt='' src={heart}></img>
+                    <img className={active ? 'img2': 'app'} alt='' src={activeHeart}></img>
+                </div>
+                <h2>{pets.name}</h2>
+                <div className='details'>
+                    <h4>ABOUT</h4>
                     <div>
-                        <p>{pets.sex}</p>
-                        <p>{pets.age}</p>
+                        <div>
+                            <p>{pets.sex}</p>
+                            <p>{pets.age}</p>
+                        </div>
+                        <div>
+                            <h4>COLOUR AND BREED</h4>
+                            <p>{pets.colour}</p>
+                            <p>{pets.breed}</p>
+                        </div>
+                        <div>
+                            <h4>ADOPTION STORY</h4>
+                            <p>{pets.adoption}</p>
+                        </div>
+                        <div>
+                            <h4>LITTER TRAINED</h4>
+                            <p>{pets.littertrained}</p>
+                        </div>
+                        <div>
+                            <h4>HEALTH</h4>
+                            <p>{pets.health}</p>
+                        </div>
+                        <div>
+                            <h4>ADOPTION FEE </h4>
+                            <p>{pets.fee}</p>
+                        </div>
                     </div>
+                    <h3>Meet {pets.name}</h3>
                     <div>
-                        <h4>Colour and Breed</h4>
-                        <p>{pets.colour}</p>
-                        <p>{pets.breed}</p>
-                    </div>
-                    <div>
-                        <h4>Adoption Story</h4>
-                        <p>{pets.adoption}</p>
-                    </div>
-                    <div>
-                        <h4>Litter-Trained</h4>
-                        <p>{pets.littertrained}</p>
-                    </div>
-                    <div>
-                        <h4>Health</h4>
-                        <p>{pets.health}</p>
-                    </div>
-                    <div>
-                        <h4>Adoption Fee: </h4>
-                        <p>{pets.fee}</p>
+                        <p>{pets.nature}</p>
                     </div>
                 </div>
-                <h3>Meet {pets.name}</h3>
-                <div>
-                    <p>{pets.nature}</p>
-                </div>
+                <button className='details__button'>Message</button>
+                <button className='details__button' onClick={e => setModalIsOpen(true)}>Adopt {pets.name}</button>
             </div>
-            {/* <p>{pets.users_id}</p> */}
-            <button className='pet__button'>Message</button>
-            <button className='pet__button' onClick={e => setModalIsOpen(true)}>Adopt {pets.name}</button>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Adoption Application Form</h4>
                 <form>

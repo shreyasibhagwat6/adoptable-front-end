@@ -1,16 +1,17 @@
 body {
   background-color: #EFEEF1;
+  color: #373458;
 }
 
 .cont {
-  background-color: #FFFFFF;
+  background-color: black;
+  height: 15.1875rem;
 }
 
-.img {
+.image {
   width: 60%;
-  height: 25%;
+  height: 100%;
   margin: 0 4rem;
-  background-color: black;
 }
 
 .img1 {
@@ -33,15 +34,28 @@ body {
   left: 1px;
 }
 
-.pet {
-  background-color: #EFEEF1;
-}
-.pet__button {
+.details__button {
   background-color: #373458;
   color: #FFFFFF;
   width: 50%;
   border-radius: 0.5rem;
   height: 2rem;
   border-color: #373458;
-  margin: 2rem;
+  margin: 2rem auto;
+  display: block;
+}
+
+.page {
+  height: 80%;
+  width: 80%;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding-left: 1rem;
+  border-radius: 0.5rem;
+}
+.page__top {
+  position: absolute;
+  left: 80%;
+  top: 57%;
+  width: 2rem;
 }/*# sourceMappingURL=PetDetails.css.map */

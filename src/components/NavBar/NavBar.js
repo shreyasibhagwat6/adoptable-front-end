@@ -75,16 +75,21 @@ const NavBar = () => {
 
     return(
         <div>
-            <Link to='/Home'>
-                <img className='home' alt='' src={home}></img>
-            </Link>
-            <Link to='/favourites'>
-                <img className='fav' alt='' src={favorite}></img>
-            </Link>
-            {/* <Link to='/messages'>
-                <img className='message' alt='' src={message}></img>
-            </Link> */}
-            <PostAddIcon onClick={e => setModalIsOpen(true)}/>
+            <div className='nav'>
+                <Link className='nav__home' to='/Home'>
+                    <img className='home' alt='' src={home}></img>
+                </Link>
+                <div className='nav__fav'>
+                    <Link to='/favourites'>
+                        <img className='fav' alt='' src={favorite}></img>
+                    </Link>
+                    {/* <Link to='/messages'>
+                        <img className='message' alt='' src={message}></img>
+                    </Link> */}
+                    <PostAddIcon onClick={e => setModalIsOpen(true)}/>
+                    <AccountCircleIcon />
+                </div>
+            </div>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Post for Adoption</h4>
                 <form onSubmit={handleSubmit}>
@@ -147,7 +152,6 @@ const NavBar = () => {
                     <button type='button' onClick={e => setModalIsOpen(false)}>Close</button>
                 </div>    
             </Modal>
-            <AccountCircleIcon />
         </div>
     )
 }
