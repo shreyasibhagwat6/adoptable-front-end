@@ -31,6 +31,7 @@ const PetType = () => {
                 return (
                     <div className='pet__card'>
                         <Link className='pet__link' to={`/pets/gallery/${pet.type}`}>
+                            <img className='pet__logo' src={`http://localhost:5050/${pet.image}`}></img>
                             <div className='pet__type' onClick={e => setPetType(pet.type)}>{pet.type}</div>
                         </Link>
                     </div>

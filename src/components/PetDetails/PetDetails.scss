@@ -1,6 +1,16 @@
+body {
+    background-color: #EFEEF1;
+}
+
+.cont{
+    background-color: #FFFFFF;
+}
+
 .img {
-    width: 200px;
-    height: 200px;
+    width: 60%;
+    height: 25%;
+    margin: 0 4rem;
+    background-color: black;
 }
 
 .img1 {
@@ -21,5 +31,20 @@
     height: 20px;
     position: absolute;
     left: 1px;
+}
+
+.pet {
+
+    background-color: #EFEEF1;
+
+    &__button{
+        background-color: #373458;
+        color: #FFFFFF;
+        width: 50%;
+        border-radius: 0.5rem;
+        height: 2rem;
+        border-color: #373458;
+        margin: 2rem;
+    }
 }
 

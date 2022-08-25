@@ -38,14 +38,16 @@ const renderedList = results.filter(result => result.type===newTerm || result.na
                 <div>
                     {renderedList.map(pet => {
                         return(
-                            <div key={pet.id}>
-                                <Link to={`/pets/${pet.id}`}>
-                                    <div onClick={e => {setDetails(pet.id)}} key={pet.id}>
-                                        <img alt='i'className='img' src={`http://localhost:5050/${pet.image}`} />
-                                        <h2>{pet.name}</h2>
-                                        <p>{pet.type}</p>
-                                        <p>{pet.sex}</p>
-                                        <p>{pet.age}</p>
+                            <div className='card__top' key={pet.id}>
+                                <Link className='card__link' to={`/pets/${pet.id}`}>
+                                    <div className='card' onClick={e => {setDetails(pet.id)}} key={pet.id}>
+                                        <img className='card__img' alt='i' src={`http://localhost:5050/${pet.image}`} />
+                                        <h2 className='card__name'>{pet.name}</h2>
+                                        <p className='card__info'>{pet.type}</p>
+                                        <div className='card__cont'>
+                                            <p className='card__info'>{pet.sex}</p>
+                                            <p className='card__info'>{pet.age}</p>
+                                        </div>
                                     </div>
                                 </Link>
                             </div>

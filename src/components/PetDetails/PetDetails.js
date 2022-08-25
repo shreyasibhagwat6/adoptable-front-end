@@ -41,13 +41,15 @@ const PetDetails = (props) => {
     return(
         <div>
             <NavBar />
-            <img className='img' alt='' src={`http://localhost:5050/${pets.image}`}></img>
+            <div className='cont'>
+                <img className='img' alt='' src={`http://localhost:5050/${pets.image}`}></img>
+            </div>
             <div onClick={clickHandler}>
                 <img className='img1' alt='' src={heart}></img>
-                <img className={active ? 'app': 'img2'} alt='' src={activeHeart}></img>
+                <img className={active ? 'img2': 'app'} alt='' src={activeHeart}></img>
             </div>
             <h2>{pets.name}</h2>
-            <div>
+            <div className='pet'>
                 <h4>About</h4>
                 <div>
                     <div>
@@ -81,9 +83,9 @@ const PetDetails = (props) => {
                     <p>{pets.nature}</p>
                 </div>
             </div>
-            <p>{pets.users_id}</p>
-            <button>Message</button>
-            <button onClick={e => setModalIsOpen(true)}>Adopt {pets.name}</button>
+            {/* <p>{pets.users_id}</p> */}
+            <button className='pet__button'>Message</button>
+            <button className='pet__button' onClick={e => setModalIsOpen(true)}>Adopt {pets.name}</button>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Adoption Application Form</h4>
                 <form>

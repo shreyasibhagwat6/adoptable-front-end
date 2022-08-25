@@ -1,4 +1,17 @@
 .img {
   height: 200px;
   width: 200px;
+}
+
+.home {
+  height: 1.5rem;
+}
+
+.fav {
+  height: 1.5rem;
+}
+
+.message {
+  height: 1.5rem;
+  padding: 0.7rem 0;
 }/*# sourceMappingURL=NavBar.css.map */

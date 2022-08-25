@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import MessageIcon from '@mui/icons-material/Message';
-import HomeIcon from '@mui/icons-material/Home';
+// import message from '../../Assets/Icons/message.png'
+import home from '../../Assets/Icons/home.png';
+import favorite from '../../Assets/Icons/fav.png';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import { v4 as uuidv4 } from 'uuid';
 import Modal from 'react-modal';
 import axios from 'axios';
+import './NavBar.scss'
 
 const NavBar = () => {
 
@@ -75,14 +76,14 @@ const NavBar = () => {
     return(
         <div>
             <Link to='/Home'>
-                <HomeIcon />
+                <img className='home' alt='' src={home}></img>
             </Link>
             <Link to='/favourites'>
-                <FavoriteIcon />
+                <img className='fav' alt='' src={favorite}></img>
             </Link>
-            <Link to='/messages'>
-                <MessageIcon />
-            </Link>
+            {/* <Link to='/messages'>
+                <img className='message' alt='' src={message}></img>
+            </Link> */}
             <PostAddIcon onClick={e => setModalIsOpen(true)}/>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Post for Adoption</h4>

@@ -4,7 +4,6 @@ import axios from 'axios';
 import PetDetails from '../PetDetails/PetDetails';
 import NavBar from '../NavBar/NavBar';
 import { useFav } from '../../context/FavContext'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import './PetCard.scss';
 
 const PetCard = (props) => {
@@ -45,14 +44,16 @@ const PetCard = (props) => {
                 <NavBar />
                 {filteredPets.map(pet => {
                     return(
-                        <div>
-                            <Link to={`/pets/${pet.id}`}>
-                                <div onClick={e => {setDetails(pet.id)}} key={pet.id}>
-                                    <img className='img' alt='' src={`http://localhost:5050/${pet.image}`}></img>
-                                    <h2>{pet.name}</h2>
-                                    <p>{pet.breed}</p>
-                                    <p>{pet.sex}</p>
-                                    <p>{pet.age}</p>
+                        <div className='card__top'>
+                            <Link className='card__link' to={`/pets/${pet.id}`}>
+                                <div className='card' onClick={e => {setDetails(pet.id)}} key={pet.id}>
+                                    <img className='card__img' alt='' src={`http://localhost:5050/${pet.image}`}></img>
+                                    <h2 className='card__name'>{pet.name}</h2>
+                                    <p className='card__info'>{pet.breed}</p>
+                                    <div className='card__cont'>
+                                        <p className='card__info'>{pet.sex}</p>
+                                        <p className='card__info'>{pet.age}</p>
+                                    </div>
                                 </div>
                             </Link>
                         </div>
