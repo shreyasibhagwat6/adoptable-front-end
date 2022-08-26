@@ -21,7 +21,7 @@ const NavBar = () => {
     const uploadImage = (event) => {
         event.preventDefault();
 
-        console.log(event.name.target.value);
+        // console.log(event.name.target.value);
 
         const formData = new FormData()
         formData.append('file', imageSelected);
@@ -35,26 +35,22 @@ const NavBar = () => {
         .catch((err) => {
             console.log(err)
         })
+        const newPet = {
+            type : event.target.type.value,
+            name : event.target.name.value,
+            breed : event.target.breed.value,
+            sex : event.target.sex.value,
+            age : event.target.age.value,
+        }
+        console.log(newPet)
+        setPet(newPet);
     };
 
     console.log(selectedFile);
 
-    // const getData = (e) => {
-    //     e.preventDefault();
-
-    //     const newPet = {
-    //         type : e.target.type.value,
-    //         name : e.target.name.value,
-    //         breed : e.target.breed.value,
-    //         sex : e.target.sex.value,
-    //         age : e.target.age.value,
-    //     }
-
-    //     console.log(newPet);
-    // }
-
     return(
         <div>
+            {/* <img src={selectedFile}></img> */}
             <div className='nav'>
                 <Link className='nav__home' to='/Home'>
                     <HomeIcon fontSize='medium' style={{ fill: '#ffffff' }} />
