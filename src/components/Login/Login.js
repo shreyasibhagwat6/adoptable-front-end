@@ -8,7 +8,7 @@ const Login = () => {
 
     const clickHandler = () => {
         history.push('/home');
-        alert('logged in');
+        alert('Login successful');
     }
 
         return(

@@ -17,61 +17,104 @@ const NavBar = () => {
     const [fileInputState, setfileInputState] = useState('');
     const [selectedFile, setSelectedFile] = useState('');
     const [previewSource, setPreviewSource] = useState()
-    
-    const handleFileInputChange = (e) =>{
-       const file = e.target.files[0]
-       previewFile(file);
-    };
+    const [imageSelected, setImageSelected] = useState('');
 
-    const previewFile = (file) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setPreviewSource(reader.result);
-        }
-    }
+    const uploadImage = (event) => {
 
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        uploadImage(previewSource);
+        event.preventDefault();
+        // console.log(files[0]);
+        // const file = imageSelected;
+        // previewFile(file);
+        // const previewFile = (file) => {
+        //     const reader = new FileReader();
+        //     reader.readAsDataURL(file);
+        //     reader.onloadend = () => {
+        //         setPreviewSource(reader.result);
+        //     }
+        // }
+        const formData = new FormData()
+        formData.append('file', imageSelected);
+        formData.append('upload_preset', 'j8siobok');
+
+        axios.post('https://api.cloudinary.com/v1_1/dxa15yqh4/image/upload', formData)
+        .then((response) => {
+            console.log(response.data.url);
+            setSelectedFile(response.data.url);
+            
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+        console.log(setSelectedFile);
 
         const newPet = {
-            type : e.target.type.value,
-            name : e.target.name.value,
-            breed : e.target.breed.value,
-            sex : e.target.sex.value,
-            age : e.target.age.value,
-            // image : base64EncodedImage
+            type : event.target.type.value,
+            name : event.target.name.value,
+            breed : event.target.breed.value,
+            sex : event.target.sex.value,
+            age : event.target.age.value,
+                // image : base64EncodedImage
         }
-        console.log(newPet);
-        setPet(newPet);
-    };
+            console.log(newPet);
+            setPet(newPet);
+        };
 
-    const uploadImage = async(base64EncodedImage) => {
-        console.log(base64EncodedImage);
-        try {
-            await fetch('http://localhost:5050/pets', {
-                method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage }),
-                headers: { 'Content-type': 'application/json' },
-            });
-        } catch (error){
-            console.log(error.data)
-        }
-    };
 
-    console.log(uploadImage);
+    
+    // const handleFileInputChange = (e) =>{
+    //    const file = e.target.files[0]
+    //    previewFile(file);
+    // };
+
+    // const previewFile = (file) => {
+    //     const reader = new FileReader();
+    //     reader.readAsDataURL(file);
+    //     reader.onloadend = () => {
+    //         setPreviewSource(reader.result);
+    //     }
+    // }
+
+    // const handleSubmit = (e) =>{
+    //     e.preventDefault();
+    //     console.log(setSelectedFile);
+    //     const newPet = {
+    //         type : e.target.type.value,
+    //         name : e.target.name.value,
+    //         breed : e.target.breed.value,
+    //         sex : e.target.sex.value,
+    //         age : e.target.age.value,
+    //         // image : base64EncodedImage
+    //     }
+    //     console.log(newPet);
+    //     setPet(newPet);
+    // };
+
+    // const uploadImage = async(base64EncodedImage) => {
+    //     console.log(base64EncodedImage);
+    //     try {
+    //         await fetch('http://localhost:5050/pets', {
+    //             method: 'POST',
+    //             body: JSON.stringify({ data: base64EncodedImage }),
+    //             headers: { 'Content-type': 'application/json' },
+    //         });
+    //     } catch (error){
+    //         console.log(error)
+    //     }
+    // };
+
+    // console.log(uploadImage);
 
     console.log(pet)
 
-    useEffect(()=> {
-        axios.post('http://localhost:5050/pets', pet)
-        .then((response) => {
-        console.log(response)
-    }).catch((error)=> {
-        console.log(error.response.data)
-    })
-    }, [pet])
+    // useEffect(()=> {
+    //     axios.post('http://localhost:5050/pets', pet)
+    //     .then((response) => {
+    //     console.log(response)
+    // }).catch((error)=> {
+    //     console.log(error.response.data)
+    // })
+    // }, [pet])
 
     return(
         <div>
@@ -92,7 +135,7 @@ const NavBar = () => {
             </div>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Post for Adoption</h4>
-                <form onSubmit={handleSubmit}>
+                <form>
                     <div>
                         <label>Pet Type: </label>
                         <input name='type' type='text'></input>
@@ -115,37 +158,9 @@ const NavBar = () => {
                     </div>
                     <div>
                         <label>Add an Image: </label>
-                        <input onChange={handleFileInputChange} value={fileInputState} name='image' type='file'></input>
+                        <input onChange={(event) => setImageSelected(event.target.files[0])} value={fileInputState} name='image' type='file'></input>
                     </div>
-                    <button type='submit'>Submit</button>
-                    {/* <div>
-                        <label>User ID: </label>
-                        <input name='users_id' type='text'></input>
-                    </div>
-                    <div>
-                        <label>Colour: </label>
-                        <input name='colour' type='text'></input>
-                    </div>
-                    <div>
-                        <label>Adoption Purpose: </label>
-                        <input name='adoption' type='text'></input>
-                    </div>
-                    <div>
-                        <label>Fee: </label>
-                        <input name='fee' type='text'></input>
-                    </div>
-                    <div>
-                        <label>Litter-Trained: </label>
-                        <input name='littertrained' type='text'></input>
-                    </div>
-                    <div>
-                        <label>Health: </label>
-                        <input name='health' type='text'></input>
-                    </div>
-                    <div>
-                        <label>Nature: </label>
-                        <input name='nature' type='text'></input>
-                    </div> */}
+                    <button onClick={uploadImage} type='submit'>Submit</button>
                 </form>
                 {previewSource && (<img src={previewSource} alt='chosen' style={{ height: '300px' }}></img>)}
                 <div>
@@ -154,6 +169,7 @@ const NavBar = () => {
             </Modal>
         </div>
     )
-}
+
+};
 
 export default NavBar;

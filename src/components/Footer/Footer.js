@@ -13,7 +13,7 @@ const Footer = () => {
                 <div>FAQs</div>
             </div>
             <div>
-                <h4>Contact</h4>
+                <h4>CONTACT</h4>
                 <div>+1-905-677-7777</div>
             </div>
             <div>
@@ -21,7 +21,7 @@ const Footer = () => {
                 <div>info@adoptable.com</div>
             </div>
             <div>
-                <h4>Check us out</h4>
+                <h4>CHECK US OUT</h4>
                 <InstagramIcon />
                 <TwitterIcon />
                 <FacebookIcon />
