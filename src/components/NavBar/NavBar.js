@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-// import message from '../../Assets/Icons/message.png'
-import home from '../../Assets/Icons/home.png';
-import favorite from '../../Assets/Icons/fav.png';
+import HomeIcon from '@mui/icons-material/Home';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import { v4 as uuidv4 } from 'uuid';
@@ -20,18 +19,10 @@ const NavBar = () => {
     const [imageSelected, setImageSelected] = useState('');
 
     const uploadImage = (event) => {
-
         event.preventDefault();
-        // console.log(files[0]);
-        // const file = imageSelected;
-        // previewFile(file);
-        // const previewFile = (file) => {
-        //     const reader = new FileReader();
-        //     reader.readAsDataURL(file);
-        //     reader.onloadend = () => {
-        //         setPreviewSource(reader.result);
-        //     }
-        // }
+
+        console.log(event.name.target.value);
+
         const formData = new FormData()
         formData.append('file', imageSelected);
         formData.append('upload_preset', 'j8siobok');
@@ -40,102 +31,45 @@ const NavBar = () => {
         .then((response) => {
             console.log(response.data.url);
             setSelectedFile(response.data.url);
-            
         })
         .catch((err) => {
             console.log(err)
         })
+    };
 
-        console.log(setSelectedFile);
+    console.log(selectedFile);
 
-        const newPet = {
-            type : event.target.type.value,
-            name : event.target.name.value,
-            breed : event.target.breed.value,
-            sex : event.target.sex.value,
-            age : event.target.age.value,
-                // image : base64EncodedImage
-        }
-            console.log(newPet);
-            setPet(newPet);
-        };
-
-
-    
-    // const handleFileInputChange = (e) =>{
-    //    const file = e.target.files[0]
-    //    previewFile(file);
-    // };
-
-    // const previewFile = (file) => {
-    //     const reader = new FileReader();
-    //     reader.readAsDataURL(file);
-    //     reader.onloadend = () => {
-    //         setPreviewSource(reader.result);
-    //     }
-    // }
-
-    // const handleSubmit = (e) =>{
+    // const getData = (e) => {
     //     e.preventDefault();
-    //     console.log(setSelectedFile);
+
     //     const newPet = {
     //         type : e.target.type.value,
     //         name : e.target.name.value,
     //         breed : e.target.breed.value,
     //         sex : e.target.sex.value,
     //         age : e.target.age.value,
-    //         // image : base64EncodedImage
     //     }
+
     //     console.log(newPet);
-    //     setPet(newPet);
-    // };
-
-    // const uploadImage = async(base64EncodedImage) => {
-    //     console.log(base64EncodedImage);
-    //     try {
-    //         await fetch('http://localhost:5050/pets', {
-    //             method: 'POST',
-    //             body: JSON.stringify({ data: base64EncodedImage }),
-    //             headers: { 'Content-type': 'application/json' },
-    //         });
-    //     } catch (error){
-    //         console.log(error)
-    //     }
-    // };
-
-    // console.log(uploadImage);
-
-    console.log(pet)
-
-    // useEffect(()=> {
-    //     axios.post('http://localhost:5050/pets', pet)
-    //     .then((response) => {
-    //     console.log(response)
-    // }).catch((error)=> {
-    //     console.log(error.response.data)
-    // })
-    // }, [pet])
+    // }
 
     return(
         <div>
             <div className='nav'>
                 <Link className='nav__home' to='/Home'>
-                    <img className='home' alt='' src={home}></img>
+                    <HomeIcon fontSize='medium' style={{ fill: '#ffffff' }} />
                 </Link>
                 <div className='nav__fav'>
                     <Link to='/favourites'>
-                        <img className='fav' alt='' src={favorite}></img>
+                        <FavoriteBorderIcon fontSize='medium' style={{ fill: '#ffffff' }} />
                     </Link>
-                    {/* <Link to='/messages'>
-                        <img className='message' alt='' src={message}></img>
-                    </Link> */}
-                    <PostAddIcon onClick={e => setModalIsOpen(true)}/>
-                    <AccountCircleIcon />
+                    <PostAddIcon fontSize='medium' style={{ fill: '#ffffff' }}onClick={e => setModalIsOpen(true)}/>
+                    <AccountCircleIcon fontSize='medium' style={{ fill: '#ffffff' }} />
                 </div>
             </div>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Post for Adoption</h4>
-                <form>
+                <form onSubmit={uploadImage}>
                     <div>
                         <label>Pet Type: </label>
                         <input name='type' type='text'></input>
@@ -158,9 +92,9 @@ const NavBar = () => {
                     </div>
                     <div>
                         <label>Add an Image: </label>
-                        <input onChange={(event) => setImageSelected(event.target.files[0])} value={fileInputState} name='image' type='file'></input>
+                        <input onChange={(event) => setImageSelected(event.target.files[0])} name='image' type='file'></input>
                     </div>
-                    <button onClick={uploadImage} type='submit'>Submit</button>
+                    <button type='submit'>Submit</button>
                 </form>
                 {previewSource && (<img src={previewSource} alt='chosen' style={{ height: '300px' }}></img>)}
                 <div>

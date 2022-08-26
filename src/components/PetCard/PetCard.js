@@ -40,8 +40,7 @@ const PetCard = (props) => {
     }
 
     return (
-            <div>
-                <NavBar />
+            <div className='card__head'>
                 {filteredPets.map(pet => {
                     return(
                         <div className='card__top'>

@@ -1,10 +1,27 @@
 @use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables";
+@use "../../styles/partials/variables" as *;
 
 .header {
     background-color: #702866;
-    height: 8rem;
+    height: 10rem;
     text-decoration: none;
+
+    @include tabletQuery {
+        display: flex;
+        height: 8rem;
+    }
+
+    &__link {
+        @include tabletQuery {
+            flex: 50;
+        }
+    }
+
+    &__nav{
+        @include tabletQuery {
+            flex: 50;
+        }
+    }
 
     &__img {
         width: 40%;
@@ -12,13 +29,23 @@
         margin-left: auto;
         margin-right: auto;
         display: block;
+
+        @include tabletQuery{
+            margin: 0 2.2rem;
+        }
     }
 
     &__text {
         margin: 0;
         color: #ffffff;
         position: absolute;
-        top: 6rem;
-        left: 3rem;
+        top: 5.7rem;
+        left: 3.2rem;
+        color: #ffd166;
+
+        @include tabletQuery {
+            top: 3.7rem;
+            left: 19rem;
+        }
     }
 }

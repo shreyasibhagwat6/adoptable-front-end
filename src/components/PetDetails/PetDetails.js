@@ -40,7 +40,6 @@ const PetDetails = (props) => {
 
     return(
         <div>
-            <NavBar />
             <div className='cont'>
                 <img className='image' alt='' src={`http://localhost:5050/${pets.image}`}></img>
             </div>

@@ -7,20 +7,19 @@ import './Footer.scss';
 const Footer = () => {
     return(
         <div className="footer">
-            <div>
-                <img></img>
+            <div className="footer__about">
                 <h4>ABOUT ADOPTABLE</h4>
                 <div>FAQs</div>
             </div>
-            <div>
+            <div className="footer__contact">
                 <h4>CONTACT</h4>
                 <div>+1-905-677-7777</div>
             </div>
-            <div>
+            <div className="footer__info">
                 <h4>E-MAIL</h4>
                 <div>info@adoptable.com</div>
             </div>
-            <div>
+            <div className="footer__social">
                 <h4>CHECK US OUT</h4>
                 <InstagramIcon />
                 <TwitterIcon />

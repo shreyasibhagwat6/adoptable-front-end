@@ -1,7 +1,23 @@
 .header {
   background-color: #702866;
-  height: 8rem;
+  height: 10rem;
   text-decoration: none;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    display: flex;
+    height: 8rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header__link {
+    flex: 50;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header__nav {
+    flex: 50;
+  }
 }
 .header__img {
   width: 40%;
@@ -10,10 +26,22 @@
   margin-right: auto;
   display: block;
 }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header__img {
+    margin: 0 2.2rem;
+  }
+}
 .header__text {
   margin: 0;
   color: #ffffff;
   position: absolute;
-  top: 6rem;
-  left: 3rem;
+  top: 5.7rem;
+  left: 3.2rem;
+  color: #ffd166;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header__text {
+    top: 3.7rem;
+    left: 19rem;
+  }
 }/*# sourceMappingURL=Header.css.map */

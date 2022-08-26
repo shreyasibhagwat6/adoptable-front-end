@@ -11,7 +11,6 @@ const FavList = (props) => {
 
     return(
         <div>
-            <NavBar />
             <div className='card__top'>
                 <div className='card'>
                     <img className='card__img' alt=''src={`http://localhost:5050/${fav.data.image}`}></img>
