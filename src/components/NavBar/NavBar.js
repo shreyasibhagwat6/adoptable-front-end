@@ -17,11 +17,10 @@ const NavBar = () => {
     const [selectedFile, setSelectedFile] = useState('');
     const [previewSource, setPreviewSource] = useState()
     const [imageSelected, setImageSelected] = useState('');
+    const [finalFile, setFinalFile] = useState('')
 
     const uploadImage = (event) => {
         event.preventDefault();
-
-        // console.log(event.name.target.value);
 
         const formData = new FormData()
         formData.append('file', imageSelected);
@@ -44,13 +43,27 @@ const NavBar = () => {
         }
         console.log(newPet)
         setPet(newPet);
+       pet.image = selectedFile;
     };
 
-    console.log(selectedFile);
+    useEffect(()=>{
+        pet.image = selectedFile;
+    }, [selectedFile]);
+
+    console.log(pet);
+
+    useEffect(()=> {
+        axios.post('http://localhost:5050/pets', pet)
+        .then((response)=>{
+            console.log(response);
+        }).catch((error)=>{
+            console.log(error.data)
+        })
+    }, [pet])
+    
 
     return(
         <div>
-            {/* <img src={selectedFile}></img> */}
             <div className='nav'>
                 <Link className='nav__home' to='/Home'>
                     <HomeIcon fontSize='medium' style={{ fill: '#ffffff' }} />
