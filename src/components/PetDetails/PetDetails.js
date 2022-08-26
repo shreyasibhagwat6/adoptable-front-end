@@ -3,10 +3,7 @@ import Modal from 'react-modal';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import './PetDetails.scss';
-import NavBar from '../NavBar/NavBar';
 import { useFav } from '../../context/FavContext'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { red } from "@mui/material/colors";
 import heart from '../../Assets/Icons/heart.png';
 import activeHeart from '../../Assets/Icons/heart_active.png';
 
@@ -39,17 +36,17 @@ const PetDetails = (props) => {
         }
 
     return(
-        <div>
-            <div className='cont'>
+        <div className='details'>
+            <div className='details__cont'>
                 <img className='image' alt='' src={`http://localhost:5050/${pets.image}`}></img>
             </div>
-            <div className='page'> 
+            <div className='details__page'> 
                 <div className='page__top' onClick={clickHandler}>
                     <img className='img1' alt='' src={heart}></img>
                     <img className={active ? 'img2': 'app'} alt='' src={activeHeart}></img>
                 </div>
-                <h2>{pets.name}</h2>
-                <div className='details'>
+                <div className='details__info'>
+                    <h2>{pets.name}</h2>
                     <h4>ABOUT</h4>
                     <div>
                         <div>

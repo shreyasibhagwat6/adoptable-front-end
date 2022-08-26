@@ -4,22 +4,38 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .nav {
-    padding: 4rem 0 4rem 16rem;
+    padding: 3rem 0 4rem 14rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav {
+    padding: 3rem 0 0 28rem;
   }
 }
 .nav__home {
   flex: 20;
+  padding-left: 1rem;
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .nav__home {
     flex: 5;
   }
 }
+@media screen and (min-width: 1280px) {
+  .nav__home {
+    flex: 1;
+  }
+}
 .nav__fav {
   flex: 80;
-  padding-left: 14rem;
+  padding-left: 11.5rem;
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .nav__fav {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1280px) {
   .nav__fav {
     padding: 0;
   }

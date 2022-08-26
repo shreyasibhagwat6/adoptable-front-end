@@ -6,22 +6,32 @@
     padding: 0;
 
     @include tabletQuery{
-        padding: 4rem 0 4rem 16rem;
-        // padding: 15% 5% 10% 70%;
+        padding: 3rem 0 4rem 14rem;
+    }
+
+    @include desktopQuery{
+        padding: 3rem 0 0 28rem;
     }
 
     &__home{
         flex: 20;
+        padding-left: 1rem;
         @include tabletQuery{
             flex: 5;
+        }
+        @include desktopQuery{
+            flex: 1;
         }
     }
 
     &__fav{
         flex: 80;
-        padding-left: 14rem;
+        padding-left: 11.5rem;
 
         @include tabletQuery{
+            padding: 0;
+        }
+        @include desktopQuery{
             padding: 0;
         }
     }

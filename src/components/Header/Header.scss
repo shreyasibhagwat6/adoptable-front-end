@@ -11,14 +11,26 @@
         height: 8rem;
     }
 
+    @include desktopQuery {
+        display: flex;
+        height: 8rem;
+    }
+
     &__link {
         @include tabletQuery {
+            flex: 50;
+        }
+
+        @include desktopQuery {
             flex: 50;
         }
     }
 
     &__nav{
         @include tabletQuery {
+            flex: 50;
+        }
+        @include desktopQuery {
             flex: 50;
         }
     }
@@ -31,7 +43,11 @@
         display: block;
 
         @include tabletQuery{
-            margin: 0 2.2rem;
+            margin: 0 2.2rem 0 0;
+        }
+        @include desktopQuery{
+            margin: 0;
+            width: 30%;
         }
     }
 
@@ -44,8 +60,12 @@
         color: #ffd166;
 
         @include tabletQuery {
+            top: 3.3rem;
+            left: 17rem;
+        }
+        @include desktopQuery {
             top: 3.7rem;
-            left: 19rem;
+            left: 34rem;
         }
     }
 }

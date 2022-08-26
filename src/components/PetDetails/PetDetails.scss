@@ -1,11 +1,9 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 body {
     background-color: #EFEEF1;
     color: #373458;
-}
-
-.cont{
-    background-color: black;
-    height: 15.1875rem;
 }
 
 .image {
@@ -36,6 +34,25 @@ body {
 
 .details {
 
+    &__info{
+
+        background-color: #FFFFFF;
+
+        @include mobileQuery{
+            width: 90%;
+        }
+    }
+
+    &__cont{
+        background-color: black;
+        height: 15rem;
+
+        @include tabletQuery{
+            background-color: black;
+            height: 30rem;
+        }
+    }
+
     &__button{
         background-color: #373458;
         color: #FFFFFF;
@@ -46,21 +63,22 @@ body {
         margin: 2rem auto;
         display: block;
     }
-}
 
-.page{
-    height: 80%;
-    width: 80%;
-    background-color: #ffffff;
-    margin: 0 auto;
-    padding-left: 1rem;
-    border-radius: 0.5rem;
-
-    &__top{
-        position: absolute;
-        left: 80%;
-        top: 57%;
-        width: 2rem;
+    &__page{
+        height: 80%;
+        // width: 80%;
+        background-color: #ffffff;
+        margin: 0 auto;
+        padding-left: 1rem;
+        border-radius: 0.5rem;
+    
+        &__top{
+            position: absolute;
+            left: 80%;
+            top: 57%;
+            width: 2rem;
+        }
     }
+    
 }
 

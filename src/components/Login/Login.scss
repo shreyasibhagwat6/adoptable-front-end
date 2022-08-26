@@ -1,3 +1,5 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .login {
     
@@ -16,18 +18,38 @@
         height: 2rem;
         border-color: #373458;
         margin: 2rem;
+
+        @include desktopQuery{
+            width: 15%;
+        }
     }
 
     &__input {
         width: 50%;
         border-radius: 0.5rem;
         height: 2rem;
-        display: block;
+        // display: block;
         margin: 1rem 4.7rem;
+
+        @include tabletQuery{
+            margin: 1rem 12rem;
+        }
+
+        @include desktopQuery{
+            width: 50%;
+            margin: 1rem;
+        }
     }
 
     &__label {
         margin: 1rem 8rem;
+
+        @include tabletQuery{
+            margin: 1rem 12rem;
+        }
+        @include desktopQuery{
+            margin: 1rem 0;
+        }
     }
 
     &__link {
@@ -42,5 +64,6 @@
 .container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
