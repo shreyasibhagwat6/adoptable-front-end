@@ -15,6 +15,12 @@
   display: block;
   margin: 0 auto;
 }
+@media screen and (min-width: 1280px) {
+  .register__input {
+    width: 20%;
+    margin: 1rem;
+  }
+}
 .register__button {
   background-color: #373458;
   color: #FFFFFF;

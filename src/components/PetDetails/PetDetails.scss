@@ -71,6 +71,13 @@ body {
         left: 40rem;
         top: 39.1rem;
     }
+    @include desktopQuery{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 65rem;
+        top: 60rem;
+    }
 }
 
 .details {
