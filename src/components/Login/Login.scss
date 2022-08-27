@@ -2,6 +2,14 @@
 @use "../../styles/partials/variables" as *;
 
 .login {
+
+    @include tabletQuery{
+        padding-bottom: 7.5rem;
+    }
+
+    @include desktopQuery{
+        padding-bottom: 9.5rem;
+    }
     
     &__header {
         display: flex;

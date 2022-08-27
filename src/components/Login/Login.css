@@ -1,3 +1,13 @@
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .login {
+    padding-bottom: 7.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .login {
+    padding-bottom: 9.5rem;
+  }
+}
 .login__header {
   display: flex;
   justify-content: center;
