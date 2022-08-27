@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import PetDetails from '../PetDetails/PetDetails';
 import NavBar from '../NavBar/NavBar';
-import { useFav } from '../../context/FavContext'
+import { useFav } from '../../Context/FavContext'
 import './PetCard.scss';
 
 const PetCard = (props) => {

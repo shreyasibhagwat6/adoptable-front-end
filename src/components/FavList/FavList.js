@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useFav } from '../../context/FavContext';
+import { useFav } from '../../Context/FavContext';
 import './FavList.scss';
 import NavBar from '../NavBar/NavBar';
 

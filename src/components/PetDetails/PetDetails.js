@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import './PetDetails.scss';
-import { useFav } from '../../context/FavContext'
+import { useFav } from '../../Context/FavContext'
 import heart from '../../Assets/Icons/heart.png';
 import activeHeart from '../../Assets/Icons/heart_active.png';
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Search from '../../components/Search/Search';
 import PetType from '../../components/PetType/PetType';
-import { FavProvider } from '../../context/FavContext';
+import { FavProvider } from '../../Context/FavContext';
 
 const apiUrl = "http://localhost:5050";
 

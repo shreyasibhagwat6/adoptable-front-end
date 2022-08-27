@@ -10,7 +10,8 @@ import PetCard from './components/PetCard/PetCard';
 import PetDetails from './components/PetDetails/PetDetails';
 import FavList from './components/FavList/FavList';
 import Message from './components/Message/Message';
-import { FavProvider } from './context/FavContext';
+// import { FavProvider } from './context/FavContext';
+import { FavProvider } from './Context/FavContext';
 import './App.css';
 
 function App() {

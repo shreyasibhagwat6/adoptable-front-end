@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
             <div className="footer__info">
                 <h4>CONTACT</h4>
-                <div>+1-905-677-7777</div>
+                <div>+1-905-677-XXXX</div>
                 <h4>E-MAIL</h4>
                 <div>info@adoptable.com</div>
             </div>
