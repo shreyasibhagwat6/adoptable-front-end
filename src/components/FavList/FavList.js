@@ -5,7 +5,7 @@ import NavBar from '../NavBar/NavBar';
 
 const FavList = () => {
     const [fav] = useFav();
-    console.log(fav)
+    console.log(fav.data)
 
     return(
         <div className='card__head'>

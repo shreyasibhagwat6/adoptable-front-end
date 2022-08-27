@@ -104,7 +104,7 @@ const PetDetails = (props) => {
                     </div>
                 </form>
                 <div>
-                <button className='form__button' onClick={e => setModalIsOpen(false)}>Submit</button>
+                <button className='form__button'>Submit</button>
                     <button className='form__button' onClick={e => setModalIsOpen(false)}>Close</button>
                 </div>    
             </Modal>

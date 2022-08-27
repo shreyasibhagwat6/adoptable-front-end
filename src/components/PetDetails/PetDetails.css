@@ -67,7 +67,7 @@ body {
 @media screen and (min-width: 320px) and (max-width: 766px) {
   .app {
     position: absolute;
-    left: 18rem;
+    left: 17rem;
     top: 26.7rem;
   }
 }

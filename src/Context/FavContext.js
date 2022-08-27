@@ -11,9 +11,9 @@ function FavProvider(props) {
         data: {}
     }
 
-    // const [fav, setFav] = useState(shape);
-
     const [fav, setFav] = useLocalStorage('MyFav', shape);
+
+    console.log(fav);
 
     function updateFav(type, id, data){
         setFav({
@@ -22,7 +22,7 @@ function FavProvider(props) {
             data,
         });
     }
-    return <FavContext.Provider value={[fav, updateFav]} {...props} />
+    return <FavContext.Provider value={[fav, updateFav]} {...props}/>
 }
 
 function useFav() {

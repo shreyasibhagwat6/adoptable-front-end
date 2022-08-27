@@ -109,7 +109,7 @@ const NavBar = () => {
                         <label className='form__label'>Add an Image: </label>
                         <input className='form__input' onChange={(event) => setImageSelected(event.target.files[0])} name='image' type='file'></input>
                     </div>
-                    <button className='form__button' type='submit' onClick={e => setModalIsOpen(false)}>Submit</button>
+                    <button className='form__button' type='submit'>Submit</button>
                 </form>
                 {/* {previewSource && (<img src={previewSource} alt='chosen' style={{ height: '300px' }}></img>)} */}
                 <div>
