@@ -57,9 +57,13 @@ const NavBar = () => {
         .then((response)=>{
             console.log(response);
         }).catch((error)=>{
-            console.log(error.data)
+            console.log(error)
         })
-    }, [pet])
+    }, [selectedFile])
+
+    const logOut = () =>{
+        alert('Successfully logged out!')
+    }
     
 
     return(
@@ -73,41 +77,43 @@ const NavBar = () => {
                         <FavoriteBorderIcon fontSize='medium' style={{ fill: '#ffffff' }} />
                     </Link>
                     <PostAddIcon fontSize='medium' style={{ fill: '#ffffff' }}onClick={e => setModalIsOpen(true)}/>
-                    <AccountCircleIcon fontSize='medium' style={{ fill: '#ffffff' }} />
+                    <Link onClick={logOut} to='/'>
+                        <AccountCircleIcon fontSize='medium' style={{ fill: '#ffffff' }} />
+                    </Link>                
                 </div>
             </div>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Post for Adoption</h4>
                 <form onSubmit={uploadImage}>
-                    <div>
-                        <label>Pet Type: </label>
-                        <input name='type' type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>Pet Type: </label>
+                        <input className='form__input' name='type' type='text'></input>
                     </div>
-                    <div>
-                        <label>Name: </label>
-                        <input name='name' type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>Name: </label>
+                        <input className='form__input' name='name' type='text'></input>
                     </div>
-                    <div>
-                        <label>Gender: </label>
-                        <input name='sex' type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>Gender: </label>
+                        <input className='form__input' name='sex' type='text'></input>
                     </div>
-                    <div>
-                        <label>Age: </label>
-                        <input name='age' type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>Age: </label>
+                        <input className='form__input' name='age' type='text'></input>
                     </div>
-                    <div>
-                        <label>Breed: </label>
-                        <input name='breed' type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>Breed: </label>
+                        <input className='form__input' name='breed' type='text'></input>
                     </div>
-                    <div>
-                        <label>Add an Image: </label>
-                        <input onChange={(event) => setImageSelected(event.target.files[0])} name='image' type='file'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>Add an Image: </label>
+                        <input className='form__input' onChange={(event) => setImageSelected(event.target.files[0])} name='image' type='file'></input>
                     </div>
-                    <button type='submit'>Submit</button>
+                    <button className='form__button' type='submit' onClick={e => setModalIsOpen(false)}>Submit</button>
                 </form>
-                {previewSource && (<img src={previewSource} alt='chosen' style={{ height: '300px' }}></img>)}
+                {/* {previewSource && (<img src={previewSource} alt='chosen' style={{ height: '300px' }}></img>)} */}
                 <div>
-                    <button type='button' onClick={e => setModalIsOpen(false)}>Close</button>
+                    <button className='form__button' type='button' onClick={e => setModalIsOpen(false)}>Close</button>
                 </div>    
             </Modal>
         </div>

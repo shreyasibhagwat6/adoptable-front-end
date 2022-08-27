@@ -4,17 +4,47 @@
 body {
     background-color: #EFEEF1;
     color: #373458;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .image {
     width: 60%;
     height: 100%;
     margin: 0 4rem;
+
+    @include tabletQuery{
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    @include desktopQuery{
+        height: 100%;
+        margin: 0 auto;
+    }
 }
 
 .img1 {
     width: 20px;
     height: 20px;
+    @include mobileQuery{
+        position: absolute;
+        left: 17rem;
+        top: 26.7rem;
+    }
+    @include tabletQuery{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 40rem;
+        top: 39.1rem;
+    }
+    @include desktopQuery{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 65rem;
+        top: 60rem;
+    }
 }
 
 .img2 {
@@ -28,11 +58,24 @@ body {
 .app {
     width: 20px;
     height: 20px;
-    position: absolute;
-    left: 1px;
+    @include mobileQuery{
+        position: absolute;
+        left: 18rem;
+        top: 26.7rem;
+    }
+
+    @include tabletQuery{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 40rem;
+        top: 39.1rem;
+    }
 }
 
 .details {
+
+    background-color: #EFEEF1;
 
     &__info{
 
@@ -40,6 +83,12 @@ body {
 
         @include mobileQuery{
             width: 90%;
+        }
+        @include tabletQuery{
+            padding: 1rem 2rem;
+        }
+        @include desktopQuery{
+            padding: 1rem 2rem;
         }
     }
 
@@ -50,6 +99,12 @@ body {
         @include tabletQuery{
             background-color: black;
             height: 30rem;
+            display: flex;
+        }
+        @include desktopQuery{
+            background-color: black;
+            height: 50rem;
+            display: flex;
         }
     }
 
@@ -62,14 +117,19 @@ body {
         border-color: #373458;
         margin: 2rem auto;
         display: block;
+
+        @include tabletQuery{
+            width: 35%;
+        }
+        @include desktopQuery{
+            width: 20%;
+        }
     }
 
     &__page{
         height: 80%;
-        // width: 80%;
         background-color: #ffffff;
         margin: 0 auto;
-        padding-left: 1rem;
         border-radius: 0.5rem;
     
         &__top{
@@ -77,6 +137,18 @@ body {
             left: 80%;
             top: 57%;
             width: 2rem;
+        }
+
+        @include mobileQuery{
+            width: 85%;
+            padding: 0.5rem;
+        }
+
+        @include tabletQuery {
+            width: 80%;
+        }
+        @include desktopQuery {
+            width: 80%;
         }
     }
     

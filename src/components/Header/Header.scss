@@ -62,10 +62,14 @@
         @include tabletQuery {
             top: 3.3rem;
             left: 17rem;
+            font-size: large;
+            font-weight: 600;
         }
         @include desktopQuery {
             top: 3.7rem;
             left: 34rem;
+            font-size: large;
+            font-weight: 600;
         }
     }
 }

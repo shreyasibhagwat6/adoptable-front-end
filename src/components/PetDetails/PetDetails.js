@@ -86,26 +86,26 @@ const PetDetails = (props) => {
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Adoption Application Form</h4>
                 <form>
-                    <div>
-                        <label>First Name: </label>
-                        <input type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>First Name: </label>
+                        <input className='form__input' type='text'></input>
                     </div>
-                    <div>
-                        <label>Last Name: </label>
-                        <input type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>Last Name: </label>
+                        <input className='form__input' type='text'></input>
                     </div>
-                    <div>
-                        <label>E-Mail: </label>
-                        <input type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>E-Mail: </label>
+                        <input className='form__input' type='text'></input>
                     </div>
-                    <div>
-                        <label>Tell Us About Yourself: </label>
-                        <input type='text'></input>
+                    <div className='form__cont'>
+                        <label className='form__label'>Tell Us About Yourself: </label>
+                        <input className='form__input' type='text'></input>
                     </div>
                 </form>
                 <div>
-                <button onClick={e => setModalIsOpen(false)}>Submit</button>
-                    <button onClick={e => setModalIsOpen(false)}>Close</button>
+                <button className='form__button' onClick={e => setModalIsOpen(false)}>Submit</button>
+                    <button className='form__button' onClick={e => setModalIsOpen(false)}>Close</button>
                 </div>    
             </Modal>
         </div>

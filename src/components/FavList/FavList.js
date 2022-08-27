@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { useFav } from '../../context/FavContext';
+import './FavList.scss';
 import NavBar from '../NavBar/NavBar';
 
-const FavList = (props) => {
-
-    // console.log(props.fav)
-    // const favList = props.fav;
+const FavList = () => {
     const [fav] = useFav();
     console.log(fav)
 
     return(
-        <div>
+        <div className='card__head'>
             <div className='card__top'>
                 <div className='card'>
                     <img className='card__img' alt=''src={`http://localhost:5050/${fav.data.image}`}></img>

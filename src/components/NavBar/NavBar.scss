@@ -53,3 +53,53 @@
     height: 1.5rem;
     padding: 0.7rem 0;
 }
+
+.form {
+
+    &__cont{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include desktopQuery{
+            justify-content: flex-start;
+            align-items: center;
+        }
+    }
+
+    &__label{
+        flex: 40;
+    }
+
+    &__input{
+        width: 70%;
+        border-radius: 0.5rem;
+        height: 1.5rem;
+        margin: 1rem 2rem;
+        flex: 60;
+
+        @include desktopQuery{
+            flex: 40;
+        }
+    }
+
+    &__button{
+        background-color: #373458;
+        color: #FFFFFF;
+        width: 50%;
+        border-radius: 0.5rem;
+        height: 2rem;
+        border-color: #373458;
+        margin: 1rem 2rem;
+
+        @include tabletQuery{
+            width: 40%;
+            margin: 1rem 17rem;
+        }
+
+        @include desktopQuery{
+            width: 20%;
+            margin: 1rem 36.8rem;
+        }
+    }
+}
