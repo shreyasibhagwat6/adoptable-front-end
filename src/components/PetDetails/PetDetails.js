@@ -15,6 +15,7 @@ const PetDetails = (props) => {
     const { petId } = useParams();
 
     console.log(petId);
+    console.log(pets)
 
     useEffect(() =>{
         axios
@@ -27,8 +28,7 @@ const PetDetails = (props) => {
             })
     }, [petId])
 
-    console.log(pets)
-
+    console.log(petId);
     
         const clickHandler = () => {
             setActive(!active);

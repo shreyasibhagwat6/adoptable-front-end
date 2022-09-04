@@ -28,7 +28,7 @@ const NavBar = () => {
 
         axios.post('https://api.cloudinary.com/v1_1/dxa15yqh4/image/upload', formData)
         .then((response) => {
-            console.log(response.data.url);
+            console.log(response.data);
             setSelectedFile(response.data.url);
         })
         .catch((err) => {
