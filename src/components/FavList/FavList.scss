@@ -1,0 +1,25 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+body{
+    height: 100%;
+    background-color: #EFEEF1
+}
+
+.img{
+    height: 200px;
+    width: 200px;
+}
+
+.card {
+
+    &__top{
+
+        @include tabletQuery{
+            padding-bottom: 10rem;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

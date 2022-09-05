@@ -1,0 +1,75 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+    background-color: #702866;
+    height: 10rem;
+    text-decoration: none;
+
+    @include tabletQuery {
+        display: flex;
+        height: 8rem;
+    }
+
+    @include desktopQuery {
+        display: flex;
+        height: 8rem;
+    }
+
+    &__link {
+        @include tabletQuery {
+            flex: 50;
+        }
+
+        @include desktopQuery {
+            flex: 50;
+        }
+    }
+
+    &__nav{
+        @include tabletQuery {
+            flex: 50;
+        }
+        @include desktopQuery {
+            flex: 50;
+        }
+    }
+
+    &__img {
+        width: 40%;
+        height: 8rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+
+        @include tabletQuery{
+            margin: 0 2.2rem 0 0;
+        }
+        @include desktopQuery{
+            margin: 0;
+            width: 30%;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        color: #ffffff;
+        position: absolute;
+        top: 5.7rem;
+        left: 3.2rem;
+        color: #ffd166;
+
+        @include tabletQuery {
+            top: 3.3rem;
+            left: 17rem;
+            font-size: large;
+            font-weight: 600;
+        }
+        @include desktopQuery {
+            top: 3.7rem;
+            left: 34rem;
+            font-size: large;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+body {
+  height: 100%;
+  background-color: #EFEEF1;
+}
+
+.img {
+  height: 200px;
+  width: 200px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .card__top {
+    padding-bottom: 10rem;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+}/*# sourceMappingURL=FavList.css.map */

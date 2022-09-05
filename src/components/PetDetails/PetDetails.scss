@@ -1,0 +1,163 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+body {
+    background-color: #EFEEF1;
+    color: #373458;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.image {
+    width: 60%;
+    height: 100%;
+    margin: 0 4rem;
+
+    @include tabletQuery{
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    @include desktopQuery{
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+
+.img1 {
+    width: 20px;
+    height: 20px;
+    @include mobileQuery{
+        position: absolute;
+        left: 17rem;
+        top: 26.7rem;
+    }
+    @include tabletQuery{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 40rem;
+        top: 39.1rem;
+    }
+    @include desktopQuery{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 65rem;
+        top: 60rem;
+    }
+}
+
+.img2 {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 1px;
+    display: none;
+}
+
+.app {
+    width: 20px;
+    height: 20px;
+    @include mobileQuery{
+        position: absolute;
+        left: 17rem;
+        top: 26.7rem;
+    }
+
+    @include tabletQuery{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 40rem;
+        top: 39.1rem;
+    }
+    @include desktopQuery{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 65rem;
+        top: 60rem;
+    }
+}
+
+.details {
+
+    background-color: #EFEEF1;
+
+    &__info{
+
+        background-color: #FFFFFF;
+
+        @include mobileQuery{
+            width: 90%;
+        }
+        @include tabletQuery{
+            padding: 1rem 2rem;
+        }
+        @include desktopQuery{
+            padding: 1rem 2rem;
+        }
+    }
+
+    &__cont{
+        background-color: black;
+        height: 15rem;
+
+        @include tabletQuery{
+            background-color: black;
+            height: 30rem;
+            display: flex;
+        }
+        @include desktopQuery{
+            background-color: black;
+            height: 50rem;
+            display: flex;
+        }
+    }
+
+    &__button{
+        background-color: #373458;
+        color: #FFFFFF;
+        width: 50%;
+        border-radius: 0.5rem;
+        height: 2rem;
+        border-color: #373458;
+        margin: 2rem auto;
+        display: block;
+
+        @include tabletQuery{
+            width: 35%;
+        }
+        @include desktopQuery{
+            width: 20%;
+        }
+    }
+
+    &__page{
+        height: 80%;
+        background-color: #ffffff;
+        margin: 0 auto;
+        border-radius: 0.5rem;
+    
+        &__top{
+            position: absolute;
+            left: 80%;
+            top: 57%;
+            width: 2rem;
+        }
+
+        @include mobileQuery{
+            width: 85%;
+            padding: 0.5rem;
+        }
+
+        @include tabletQuery {
+            width: 80%;
+        }
+        @include desktopQuery {
+            width: 80%;
+        }
+    }
+    
+}
+
