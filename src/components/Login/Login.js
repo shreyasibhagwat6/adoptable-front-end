@@ -2,14 +2,15 @@ import { useRef, useState, useEffect, React } from "react";
 import { Link, useHistory } from "react-router-dom";
 import './Login.scss';
 import axios from 'axios';
+import { click } from "@testing-library/user-event/dist/click";
 
 
 const Login = () => {
     let history = useHistory();
 
     const clickHandler = () => {
-        // history.push('/home');
-        // alert('Login successful');
+        history.push('/home');
+        alert('Login successful');
     }
 
     const [user, setUser] = useState('');
@@ -30,7 +31,16 @@ const Login = () => {
     useEffect(()=>{
         axios.post('http://localhost:5050/login', user)
             .then((response)=>{
-                console.log(response)
+                console.log(response);
+                if(response) {
+                    // const clickHandler = () => {
+                    //         history.push('/home');
+                    //         alert('Login successful');
+                    //     }
+                    clickHandler();
+                } else {
+                    alert('User not registered');
+                }
             }).catch((error)=>{
                 console.log(error.data)
             })

@@ -4,6 +4,7 @@
 body{
     background-color: #EFEEF1;
     height: 100%;
+    margin: 0;
 
     @include tabletQuery {
         background-color: #ffffff;

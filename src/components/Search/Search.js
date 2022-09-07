@@ -17,7 +17,7 @@ const Search = () => {
                 setResults(res.data)
             })
             .catch(err => {
-                console.log('Error')
+                console.log(err)
             })
     }, [term]);
 

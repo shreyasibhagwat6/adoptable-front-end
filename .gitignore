@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-.css.css.msp
+.css
+.css.msp
 
 # testing
 /coverage

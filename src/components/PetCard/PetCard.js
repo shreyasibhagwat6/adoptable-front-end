@@ -32,6 +32,31 @@ const PetCard = (props) => {
     const filteredPets = results.filter(pet => pet.type === petsType);
     console.log(filteredPets);
 
+    const petImg = filteredPets.map((image)=>
+        image.image
+    );
+    
+    console.log(petImg);
+    
+    let petArray = [];
+    const petUrl = petImg.map (image => {
+        if(image.charAt(0) === 'i') {
+            let imgUrl = 'http://localhost:5050/'+ image;
+            petArray.push(imgUrl)
+        } else {
+            petArray.push(image)
+        }
+        
+    })
+
+    console.log(petArray[1])
+
+    for (let i=0; i<filteredPets.length; i++) {
+        filteredPets[i].petImage = petArray[i];
+    }
+
+    console.log(filteredPets);
+
     console.log(details)
 
     const clickHandler = () => {
@@ -40,27 +65,28 @@ const PetCard = (props) => {
     }
 
     return (
-            <div className='card__head'>
-                {filteredPets.map(pet => {
-                    return(
-                        <div className='card__top'>
-                            <Link className='card__link' to={`/pets/${pet.id}`}>
-                                <div className='card' onClick={e => {setDetails(pet.id)}} key={pet.id}>
-                                    <img className='card__img' alt='' src={`http://localhost:5050/${pet.image}`}></img>
-                                    <h2 className='card__name'>{pet.name}</h2>
-                                    <p className='card__info'>{pet.breed}</p>
-                                    <div className='card__cont'>
-                                        <p className='card__info'>{pet.sex}</p>
-                                        <p className='card__info'>{pet.age}</p>
-                                    </div>
+        <div className='card__head'>
+            {filteredPets.map(pet => {
+                return(
+                    <div className='card__top'>
+                        <Link className='card__link' to={`/pets/${pet.id}`}>
+                            <div className='card' onClick={e => {setDetails(pet.id)}} key={pet.id}>
+                                <img className='card__img' alt='' src={pet.petImage}></img>
+                                <h2 className='card__name'>{pet.name}</h2>
+                                <p className='card__info'>{pet.breed}</p>
+                                <div className='card__cont'>
+                                    <p className='card__info'>{pet.sex}</p>
+                                    <p className='card__info'>{pet.age}</p>
                                 </div>
-                            </Link>
-                        </div>
-                    )
-                })}
-                {details !== '' && <PetDetails id={details}/>}
-            </div>
-    )
-}
+                            </div>
+                        </Link>
+                    </div>
+                )
+            })}
+            {details !== '' && <PetDetails id={details}/>}
+        </div>
+)
 
+    
+}
 export default PetCard;

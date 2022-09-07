@@ -10,12 +10,15 @@ import activeHeart from '../../Assets/Icons/heart_active.png';
 const PetDetails = (props) => {
     const [pets, setPets] = useState({})
     const [active, setActive] = useState('false');
+    const [user, setUser] = useState('');
+    const [userId, setUserId] = ([]);
     const [fav, updateFav] = useFav();
     const [modalIsOpen, setModalIsOpen] = useState(false);  
     const { petId } = useParams();
 
     console.log(petId);
-    console.log(pets)
+    console.log(pets);
+    console.log(pets.users_id)
 
     useEffect(() =>{
         axios
@@ -34,6 +37,27 @@ const PetDetails = (props) => {
             setActive(!active);
             updateFav('pets', pets.id, pets)
         }
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:5050/users')
+            .then(response => {
+               const owners = response.data;
+               setUser(pets.users_id);
+               console.log(owners);
+               const selectUser = owners.filter(owner => owner.id === user);
+               console.log(selectUser);
+            //    const selectOwner = selectUser;
+            //    setUserId(selectUser);
+            //    console.log(userId);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [petId]); 
+
+    // console.log(userId);
+    console.log(petId);
 
     return(
         <div className='details'>
@@ -78,6 +102,10 @@ const PetDetails = (props) => {
                     <h3>Meet {pets.name}</h3>
                     <div>
                         <p>{pets.nature}</p>
+                    </div>
+                    <div>
+                        {/* <h3>Adoption from</h3>
+                        <p>{adoption.name}</p> */}
                     </div>
                 </div>
                 <button className='details__button'>Message</button>
