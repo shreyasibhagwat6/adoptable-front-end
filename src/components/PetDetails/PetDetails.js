@@ -1,4 +1,4 @@
-import React, { createContext, useRef, useState, useEffect } from 'react';
+import React, { createContext, useRef, useState, useEffect, useContext } from 'react';
 import Modal from 'react-modal';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
@@ -6,12 +6,14 @@ import './PetDetails.scss';
 import { useFav } from '../../Context/FavContext'
 import heart from '../../Assets/Icons/heart.png';
 import activeHeart from '../../Assets/Icons/heart_active.png';
+import { UserContext } from '../../Context/UserContext';
 
 const PetDetails = (props) => {
+
+    const { value, setValue } = useContext(UserContext);
     const [pets, setPets] = useState({})
     const [active, setActive] = useState('false');
     const [user, setUser] = useState('');
-    const [userId, setUserId] = ([]);
     const [fav, updateFav] = useFav();
     const [modalIsOpen, setModalIsOpen] = useState(false);  
     const { petId } = useParams();
@@ -20,7 +22,7 @@ const PetDetails = (props) => {
     console.log(pets);
     console.log(pets.users_id)
 
-    useEffect(() =>{
+    useEffect(() => {
         axios
             .get(`http://localhost:5050/pets/${petId}`)
             .then(res => {
@@ -32,6 +34,7 @@ const PetDetails = (props) => {
     }, [petId])
 
     console.log(petId);
+    console.log(value);
     
         const clickHandler = () => {
             setActive(!active);
@@ -43,20 +46,18 @@ const PetDetails = (props) => {
             .get('http://localhost:5050/users')
             .then(response => {
                const owners = response.data;
-               setUser(pets.users_id);
+               console.log(pets.users_id)
                console.log(owners);
-               const selectUser = owners.filter(owner => owner.id === user);
-               console.log(selectUser);
-            //    const selectOwner = selectUser;
-            //    setUserId(selectUser);
-            //    console.log(userId);
+               const selectUser = owners.filter(owner => owner.id === pets.users_id);
+               console.log(selectUser[0]);
+               setUser(selectUser);
             })
             .catch(err => {
                 console.log(err);
             })
     }, [petId]); 
 
-    // console.log(userId);
+    console.log(user[0]);
     console.log(petId);
 
     return(
@@ -104,8 +105,8 @@ const PetDetails = (props) => {
                         <p>{pets.nature}</p>
                     </div>
                     <div>
-                        {/* <h3>Adoption from</h3>
-                        <p>{adoption.name}</p> */}
+                        <h3>For Adoption from</h3>
+                        <p>{user[0].name}</p>
                     </div>
                 </div>
                 <button className='details__button'>Message</button>

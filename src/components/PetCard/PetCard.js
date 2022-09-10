@@ -1,12 +1,15 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect, useContext  } from 'react';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import PetDetails from '../PetDetails/PetDetails';
 import NavBar from '../NavBar/NavBar';
 import { useFav } from '../../Context/FavContext'
 import './PetCard.scss';
+import { UserContext } from '../../Context/UserContext';
 
 const PetCard = (props) => {
+
+    const { value, setValue } = useContext(UserContext);
 
     const [results, setResults] = useState([]);
     const [details, setDetails] = useState('');
@@ -26,8 +29,9 @@ const PetCard = (props) => {
             })
     }, []);
 
-    console.log(results)
-    console.log(details)
+    // console.log(results)
+    // console.log(details)
+    // console.log(value);
 
     const filteredPets = results.filter(pet => pet.type === petsType);
     console.log(filteredPets);
@@ -36,7 +40,7 @@ const PetCard = (props) => {
         image.image
     );
     
-    console.log(petImg);
+    // console.log(petImg);
     
     let petArray = [];
     const petUrl = petImg.map (image => {
@@ -49,15 +53,15 @@ const PetCard = (props) => {
         
     })
 
-    console.log(petArray[1])
+    // console.log(petArray[1])
 
     for (let i=0; i<filteredPets.length; i++) {
         filteredPets[i].petImage = petArray[i];
     }
 
-    console.log(filteredPets);
+    // console.log(filteredPets);
 
-    console.log(details)
+    // console.log(details)
 
     const clickHandler = () => {
         setActive(!active);

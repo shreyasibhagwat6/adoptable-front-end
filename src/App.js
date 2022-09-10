@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header/Header';
@@ -12,26 +12,33 @@ import FavList from './components/FavList/FavList';
 import Message from './components/Message/Message';
 // import { FavProvider } from './context/FavContext';
 import { FavProvider } from './Context/FavContext';
+import { UserContext } from './Context/UserContext';
 // import './App.css';
 
 function App() {
+  
+  const [value, setValue] = useState(null)
+
+  const providerValue = useMemo(() => ({value, setValue}), [value, setValue])
 
   return(
     <div>
         <BrowserRouter>
         <FavProvider>
-          <Header />
-          {/* <Switch> */}
-            <Route exact path="/" component={ Login }/>
-            <Route path="/register" component={ Register }/>
-            <Route path="/home" component={ Home }/>
-            <Route exact path="/pets/gallery/:petsType" component={ PetCard } />
-            <Route exact path="/pets/:petId" component={ PetDetails } />
-            <Route path="/favourites" component={ FavList } />
-            <Route path="/messages" component={ Message } />
-          {/* </Switch>   */}
-          <Footer />
-          </FavProvider>
+          <UserContext.Provider value={providerValue}>
+            <Header />
+            {/* <Switch> */}
+              <Route exact path="/" component={ Login }/>
+              <Route path="/register" component={ Register }/>
+              <Route path="/home" component={ Home }/>
+              <Route exact path="/pets/gallery/:petsType" component={ PetCard } />
+              <Route exact path="/pets/:petId" component={ PetDetails } />
+              <Route path="/favourites" component={ FavList } />
+              <Route path="/messages" component={ Message } />
+            {/* </Switch>   */}
+            <Footer />
+          </UserContext.Provider>
+        </FavProvider>
         </BrowserRouter>
     </div>
   )
