@@ -15,6 +15,7 @@ const PetDetails = (props) => {
     const [active, setActive] = useState('false');
     const [user, setUser] = useState('');
     const [fav, updateFav] = useFav();
+    const [modal, setModal] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);  
     const { petId } = useParams();
 
@@ -35,11 +36,6 @@ const PetDetails = (props) => {
 
     console.log(petId);
     console.log(value);
-    
-        const clickHandler = () => {
-            setActive(!active);
-            updateFav('pets', pets.id, pets)
-        }
 
     useEffect(() => {
         axios
@@ -56,6 +52,11 @@ const PetDetails = (props) => {
                 console.log(err);
             })
     }, [petId]); 
+    
+        const clickHandler = () => {
+            setActive(!active);
+            updateFav('pets', pets.id, pets)
+        }
 
     console.log(user[0]);
     console.log(petId);
@@ -104,12 +105,12 @@ const PetDetails = (props) => {
                     <div>
                         <p>{pets.nature}</p>
                     </div>
-                    <div>
+                    {/* <div>
                         <h3>For Adoption from</h3>
                         <p>{user[0].name}</p>
-                    </div>
+                    </div> */}
                 </div>
-                <button className='details__button'>Message</button>
+                <button className='details__button' onClick={e => setModal(true)}>Message</button>
                 <button className='details__button' onClick={e => setModalIsOpen(true)}>Adopt {pets.name}</button>
             </div>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
@@ -135,6 +136,23 @@ const PetDetails = (props) => {
                 <div>
                 <button className='form__button'>Submit</button>
                     <button className='form__button' onClick={e => setModalIsOpen(false)}>Close</button>
+                </div>    
+            </Modal>
+            <Modal isOpen={modal} onRequestClose={e => setModal(false)}>
+                <h4>Adoption Application Form</h4>
+                <form>
+                    <div className='form__cont'>
+                        <label className='form__label'>E-Mail: </label>
+                        <input className='form__input' type='text'></input>
+                    </div>
+                    <div className='form__cont'>
+                        <label className='form__label'>Message: </label>
+                        <input className='form__input' type='text'></input>
+                    </div>
+                </form>
+                <div>
+                <button className='form__button'>Submit</button>
+                    <button className='form__button' onClick={e => setModal(false)}>Close</button>
                 </div>    
             </Modal>
         </div>
