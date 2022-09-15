@@ -47,11 +47,12 @@
         }
         @include desktopQuery{
             margin: 0;
-            width: 30%;
+            width: 20%;
         }
     }
 
     &__text {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         margin: 0;
         color: #ffffff;
         position: absolute;
@@ -67,7 +68,7 @@
         }
         @include desktopQuery {
             top: 3.7rem;
-            left: 34rem;
+            left: 52rem;
             font-size: large;
             font-weight: 600;
         }

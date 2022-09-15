@@ -3,12 +3,16 @@
 
 .login {
 
-    @include tabletQuery{
-        padding-bottom: 7.5rem;
-    }
+    &__container {
+        display: flex;
 
-    @include desktopQuery{
-        padding-bottom: 11.5rem;
+        &--img{
+            flex: 50;
+        }
+
+        &--text{
+            flex: 50;
+        }
     }
     
     &__header {
@@ -16,16 +20,17 @@
         justify-content: center;
         align-items: center;
         margin: 1rem 0;
+        padding-top: 8rem;
     }
 
     &__button {
         background-color: #373458;
         color: #FFFFFF;
-        width: 50%;
+        width: 30%;
         border-radius: 0.5rem;
         height: 2rem;
         border-color: #373458;
-        margin: 2rem;
+        margin: 2rem 0 2rem 8rem;
 
         @include desktopQuery{
             width: 15%;

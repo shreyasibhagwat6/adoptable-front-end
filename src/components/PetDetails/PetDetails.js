@@ -139,7 +139,7 @@ const PetDetails = (props) => {
                 </div>    
             </Modal>
             <Modal isOpen={modal} onRequestClose={e => setModal(false)}>
-                <h4>Adoption Application Form</h4>
+                <h4>Message</h4>
                 <form>
                     <div className='form__cont'>
                         <label className='form__label'>E-Mail: </label>

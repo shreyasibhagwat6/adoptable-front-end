@@ -1,0 +1,179 @@
+body {
+  background-color: #EFEEF1;
+  color: #373458;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.image {
+  width: 50%;
+  height: 100%;
+  margin: 0 4rem;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .image {
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .image {
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+
+.img1 {
+  width: 20px;
+  height: 20px;
+}
+@media screen and (min-width: 320px) and (max-width: 766px) {
+  .img1 {
+    position: absolute;
+    left: 17rem;
+    top: 26.7rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .img1 {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 40rem;
+    top: 39.1rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .img1 {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 65rem;
+    top: 60rem;
+  }
+}
+
+.img2 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 1px;
+  display: none;
+}
+
+.app {
+  width: 20px;
+  height: 20px;
+}
+@media screen and (min-width: 320px) and (max-width: 766px) {
+  .app {
+    position: absolute;
+    left: 17rem;
+    top: 26.7rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .app {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 40rem;
+    top: 39.1rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .app {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 65rem;
+    top: 60rem;
+  }
+}
+
+.details {
+  background-color: #EFEEF1;
+}
+.details__info {
+  background-color: #FFFFFF;
+}
+@media screen and (min-width: 320px) and (max-width: 766px) {
+  .details__info {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .details__info {
+    padding: 1rem 2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .details__info {
+    padding: 1rem 2rem;
+  }
+}
+.details__cont {
+  background-color: black;
+  height: 15rem;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .details__cont {
+    background-color: black;
+    height: 30rem;
+    display: flex;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .details__cont {
+    background-color: black;
+    height: 50rem;
+    display: flex;
+  }
+}
+.details__button {
+  background-color: #373458;
+  color: #FFFFFF;
+  width: 50%;
+  border-radius: 0.5rem;
+  height: 2rem;
+  border-color: #373458;
+  margin: 2rem auto;
+  display: block;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .details__button {
+    width: 35%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .details__button {
+    width: 20%;
+  }
+}
+.details__page {
+  height: 80%;
+  background-color: #ffffff;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+.details__page__top {
+  position: absolute;
+  left: 80%;
+  top: 57%;
+  width: 2rem;
+}
+@media screen and (min-width: 320px) and (max-width: 766px) {
+  .details__page {
+    width: 85%;
+    padding: 0.5rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .details__page {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .details__page {
+    width: 80%;
+  }
+}/*# sourceMappingURL=PetDetails.css.map */

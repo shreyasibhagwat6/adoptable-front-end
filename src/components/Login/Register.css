@@ -1,0 +1,32 @@
+.register__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+.register__label {
+  display: block;
+  margin: 1rem 25%;
+}
+.register__input {
+  width: 50%;
+  border-radius: 0.5rem;
+  height: 2rem;
+  display: block;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1280px) {
+  .register__input {
+    width: 20%;
+    margin: 1rem;
+  }
+}
+.register__button {
+  background-color: #373458;
+  color: #FFFFFF;
+  width: 20%;
+  border-radius: 0.5rem;
+  height: 2rem;
+  border-color: #373458;
+  margin: 2rem;
+}/*# sourceMappingURL=Register.css.map */

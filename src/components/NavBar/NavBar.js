@@ -70,15 +70,15 @@ const NavBar = () => {
         <div>
             <div className='nav'>
                 <Link className='nav__home' to='/Home'>
-                    <HomeIcon fontSize='medium' style={{ fill: '#ffffff' }} />
+                    <HomeIcon fontSize='large' style={{ fill: '#ffffff' }} />
                 </Link>
                 <div className='nav__fav'>
                     <Link to='/favourites'>
-                        <FavoriteBorderIcon fontSize='medium' style={{ fill: '#ffffff' }} />
+                        <FavoriteBorderIcon fontSize='large' style={{ fill: '#ffffff' }} />
                     </Link>
-                    <PostAddIcon fontSize='medium' style={{ fill: '#ffffff' }}onClick={e => setModalIsOpen(true)}/>
+                    <PostAddIcon fontSize='large' style={{ fill: '#ffffff' }}onClick={e => setModalIsOpen(true)}/>
                     <Link onClick={logOut} to='/'>
-                        <AccountCircleIcon fontSize='medium' style={{ fill: '#ffffff' }} />
+                        <AccountCircleIcon fontSize='large' style={{ fill: '#ffffff' }} />
                     </Link>                
                 </div>
             </div>
