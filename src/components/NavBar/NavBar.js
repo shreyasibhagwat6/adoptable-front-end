@@ -69,18 +69,20 @@ const NavBar = () => {
     return(
         <div>
             <div className='nav'>
-                <Link className='nav__home' to='/Home'>
-                    <HomeIcon fontSize='large' style={{ fill: '#ffffff' }} />
-                </Link>
-                <div className='nav__fav'>
-                    <Link to='/favourites'>
-                        <FavoriteBorderIcon fontSize='large' style={{ fill: '#ffffff' }} />
+                <ul className='nav__ul'>
+                    <Link className='nav__home' to='/Home'>
+                        <li>Home</li>
                     </Link>
-                    <PostAddIcon fontSize='large' style={{ fill: '#ffffff' }}onClick={e => setModalIsOpen(true)}/>
-                    <Link onClick={logOut} to='/'>
-                        <AccountCircleIcon fontSize='large' style={{ fill: '#ffffff' }} />
-                    </Link>                
-                </div>
+                    <Link className='nav__fav' to='/favourites'>
+                        <li>Favourites</li>
+                    </Link>
+                    <Link className='nav__post'>
+                        <li onClick={e => setModalIsOpen(true)}>Post</li>
+                    </Link>
+                    <Link className='nav__logout' to='/'>
+                        <li>Logout</li>
+                    </Link>
+                </ul>
             </div>
             <Modal isOpen={modalIsOpen} onRequestClose={e => setModalIsOpen(false)}>
                 <h4>Post for Adoption</h4>

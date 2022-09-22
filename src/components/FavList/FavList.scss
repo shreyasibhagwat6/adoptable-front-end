@@ -13,10 +13,10 @@ body{
 
 .card {
 
-    &__top{
+    &__top--fav{
 
         @include tabletQuery{
-            padding-bottom: 10rem;
+            padding-bottom: 13rem;
             padding-top: 2rem;
             display: flex;
             justify-content: center;

@@ -9,7 +9,7 @@ const FavList = () => {
 
     return(
         <div className='card__head'>
-            <div className='card__top'>
+            <div className='card__top--fav'>
                 <div className='card'>
                     <img className='card__img' alt=''src={`http://localhost:5050/${fav.data.image}`}></img>
                     <h2 className='card__name'>{fav.data.name}</h2>

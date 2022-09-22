@@ -6,33 +6,64 @@
     padding: 0;
 
     @include tabletQuery{
-        padding: 3rem 0 4rem 22rem;
+        padding: 3rem 0 4rem 12rem;
     }
 
     @include desktopQuery{
-        padding: 3rem 0 0 28rem;
+        padding: 3rem 0 0 16rem;
+    }
+
+    &__ul{
+        display: flex;
+        list-style-type: none;
     }
 
     &__home{
-        flex: 20;
         padding-left: 1rem;
+        text-decoration: none;
+        color: white;
+
         @include tabletQuery{
-            flex: 5;
+            padding: 0 1rem;
         }
         @include desktopQuery{
-            flex: 1;
+            padding: 0 1rem;
         }
     }
 
     &__fav{
-        flex: 80;
-        padding-left: 11.5rem;
+        text-decoration: none;
+        color: white;
 
         @include tabletQuery{
-            padding: 0;
+            padding: 0 1rem;
         }
         @include desktopQuery{
-            padding: 0;
+            padding: 0 1rem;
+        }
+    }
+
+    &__post{
+        text-decoration: none;
+        color: white;
+
+        @include tabletQuery{
+            padding: 0 1rem;
+        }
+        @include desktopQuery{
+            padding: 0 1rem;
+        }
+    }
+
+    &__logout{
+        text-decoration: none;
+        color: white;
+
+        @include tabletQuery{
+            padding: 0 1rem;
+        }
+        @include desktopQuery{
+            padding: 0 1rem;
         }
     }
 }

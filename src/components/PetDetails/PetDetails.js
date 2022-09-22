@@ -57,7 +57,7 @@ const PetDetails = (props) => {
             setActive(!active);
             updateFav('pets', pets.id, pets)
         }
-
+          
     console.log(user[0]);
     console.log(petId);
 

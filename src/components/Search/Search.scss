@@ -1,8 +1,33 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .input {
     width: 50%;
     border-radius: 0.5rem;
     height: 2rem;
     display: block;
     margin: 2rem auto;
+}
+
+.card {
+    border-radius: 0.5rem;
+    width: 12rem;
+    height: 20rem;
+    background-color: #ffffff;
+    margin: 0 2rem;
+
+    &__img--search{
+        width: 100%;
+        height: 72%;
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    &__top--search{
+
+        @include tabletQuery{
+            padding-top: 1rem;
+            padding-bottom: 4rem;
+        }
+    }
 }
 

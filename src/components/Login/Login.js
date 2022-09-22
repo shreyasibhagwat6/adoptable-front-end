@@ -16,8 +16,10 @@ const Login = () => {
     // }
 
     const { value, setValue } = useContext(UserContext);
-
     const [users, setUsers] = useState('');
+    const [loginStatus, setLoginStatus] = useState('');
+
+    axios.defaults.withCredentials = true;
 
     const submitUser = (event) => {
         event.preventDefault();
@@ -35,18 +37,29 @@ const Login = () => {
     useEffect(()=>{
         axios.post('http://localhost:5050/login', users)
             .then((response)=>{
-                console.log(response.data[0].name);
-                setValue(response.data[0].name);
+                // console.log(response.data.message);
+                setLoginStatus(response.data.message);
             }).catch((error)=>{
                 console.log(error)
             })
     }, [users]);
+
+    useEffect(()=>{
+        axios.get("http://localhost:5050/login")
+        .then((response)=>{
+          if (response.data.loggedIn == true) {
+            console.log(response.data.user[0].username)
+            setLoginStatus(response.data.user[0].username)
+          }
+        })
+      }, [])
 
         return(
             <div className="login">
                 <div className="login__container">
                     <img className="login__container--img" src={logoOne}></img>
                     <div className="login__container--text">
+                        <h3>{loginStatus}</h3>
                         <h2 className="login__header">Log in</h2>
                         <form onSubmit={submitUser}>
                             <div className="container">
