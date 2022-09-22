@@ -12,7 +12,7 @@ import HomePage from '../../pages/Home/Home';
 
 const Login = () => {
     let history = useHistory();
-    
+
     const { value, setValue } = useContext(UserContext);
     const [users, setUsers] = useState('');
     const [loginStatus, setLoginStatus] = useState(false);
@@ -47,9 +47,9 @@ const Login = () => {
 
         console.log(login)
 
-        if(login) {
-            history.push('/home'); 
-        }
+        // if(login) {
+        //     history.push('/home'); 
+        // }
     }
 
     useEffect(()=>{
@@ -67,6 +67,10 @@ const Login = () => {
             console.log(error)
         })
     }, [])
+
+    if(login) {
+        history.push('/home'); 
+    }
 
     const userAuthenticated = () => {
         axios.get('http://localhost:3001/auth', {

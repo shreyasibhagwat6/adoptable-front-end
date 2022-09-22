@@ -23,6 +23,7 @@ const Register = () => {
         }
 
         setUser(newUser);
+        console.log(user)
     }
         console.log(user);
 
@@ -34,6 +35,12 @@ useEffect(()=>{
             console.log(error.data)
         })
 }, [user]);
+
+console.log(user)
+
+if(user != '') {
+    history.push('/');
+}
                  
         return(
             <div className="register">
