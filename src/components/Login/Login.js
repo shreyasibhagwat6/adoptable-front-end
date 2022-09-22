@@ -5,21 +5,35 @@ import axios from 'axios';
 import { click } from "@testing-library/user-event/dist/click";
 import { UserContext } from '../../Context/UserContext';
 import logoOne from '../../Assets/Logo/logoOne.png';
+import PetCard from "../PetCard/PetCard";
+import { NavigateBefore } from "@mui/icons-material";
+import HomePage from '../../pages/Home/Home';
 
 
 const Login = () => {
     let history = useHistory();
-
-    // const clickHandler = () => {
-    //     history.push('/home');
-    //     alert('Login successful');
-    // }
-
+    
     const { value, setValue } = useContext(UserContext);
     const [users, setUsers] = useState('');
-    const [loginStatus, setLoginStatus] = useState('');
+    const [loginStatus, setLoginStatus] = useState(false);
+    const [login, setLogin] = useState("")
 
     axios.defaults.withCredentials = true;
+
+    console.log(users)
+
+    useEffect(()=>{
+        axios.post('http://localhost:5050/login', users)
+            .then((response)=>{
+                console.log(response)
+                setLoginStatus(response.data.message);
+                setLogin(response.data.token)
+                console.log(response.data.token)
+                console.log(loginStatus)
+            }).catch((error)=>{
+                console.log(error)
+            })
+    }, [users]);
 
     const submitUser = (event) => {
         event.preventDefault();
@@ -30,29 +44,39 @@ const Login = () => {
         }
 
         setUsers(newUsers);
+
+        console.log(login)
+
+        if(login) {
+            history.push('/home'); 
+        }
     }
-
-    console.log(users)
-
-    useEffect(()=>{
-        axios.post('http://localhost:5050/login', users)
-            .then((response)=>{
-                // console.log(response.data.message);
-                setLoginStatus(response.data.message);
-            }).catch((error)=>{
-                console.log(error)
-            })
-    }, [users]);
 
     useEffect(()=>{
         axios.get("http://localhost:5050/login")
         .then((response)=>{
-          if (response.data.loggedIn == true) {
-            console.log(response.data.user[0].username)
-            setLoginStatus(response.data.user[0].username)
-          }
+        console.log(response)
+        if(!response.data.auth) {
+        setLoginStatus(false)
+        } else {
+            setLoginStatus(true)
+            localStorage.setItem("token", response.data.token)
+            console.log(response.data)
+        }
+        }).catch((error) => {
+            console.log(error)
         })
-      }, [])
+    }, [])
+
+    const userAuthenticated = () => {
+        axios.get('http://localhost:3001/auth', {
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          }
+        }).then((response) => {
+          console.log(response)
+        })
+      }
 
         return(
             <div className="login">
